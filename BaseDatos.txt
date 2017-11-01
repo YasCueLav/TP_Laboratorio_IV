@@ -24,7 +24,7 @@ create table Clientes
 create table Puestos
 (
 	id_puesto int identity(1,1),
-	puesto int,
+	piso int,
 	ventana bit,
 	cant_sillas int
 	constraint pk_puesto primary key (id_puesto) 
