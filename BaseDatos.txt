@@ -1,0 +1,44 @@
+create database TP_Lab_IV
+use TP_Lab_IV
+
+create table Tipos_Documentos
+(
+	id_Tipo int identity(1,1),
+	descripcion varchar(30),
+	constraint pk_tipo_documento primary key (id_Tipo) 
+)
+
+create table Clientes
+(
+	id_cliente int identity(1,1),
+	nombre varchar(50),
+	apellido varchar(50),
+	documento int,
+	id_tipo_documento int,
+	telefono bigint,
+	constraint pk_cliente primary key(id_cliente),
+	constraint fk_tipo_documento foreign key (id_tipo_documento)
+	references Tipos_Documentos (id_Tipo)
+)
+
+create table Puestos
+(
+	id_puesto int identity(1,1),
+	puesto int,
+	ventana bit,
+	cant_sillas int
+	constraint pk_puesto primary key (id_puesto) 
+)
+
+create table Alquileres
+(
+	id_alquiler int identity (1,1),
+	id_cliente int,
+	id_puesto int,
+	cant_equipos int,
+	sillas_extras int,
+	sala_reunion char
+	constraint pk_alquiler primary key (id_alquiler),
+	constraint fk_cliente foreign  key (id_cliente) references Clientes(id_cliente),
+	constraint fk_puesto foreign  key (id_puesto) references Puestos(id_puesto)
+)
