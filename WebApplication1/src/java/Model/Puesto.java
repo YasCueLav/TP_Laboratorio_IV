@@ -11,6 +11,7 @@ package Model;
  */
 public class Puesto {
     int idPuesto;
+    int puesto;
     int piso;
     boolean ventana;
     int cantSillas;
