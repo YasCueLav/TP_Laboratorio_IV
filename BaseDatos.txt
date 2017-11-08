@@ -24,6 +24,7 @@ create table Clientes
 create table Puestos
 (
 	id_puesto int identity(1,1),
+	nombre int,
 	piso int,
 	ventana bit,
 	cant_sillas int
@@ -37,7 +38,7 @@ create table Alquileres
 	id_puesto int,
 	cant_equipos int,
 	sillas_extras int,
-	sala_reunion char
+	sala_reunion bit
 	constraint pk_alquiler primary key (id_alquiler),
 	constraint fk_cliente foreign  key (id_cliente) references Clientes(id_cliente),
 	constraint fk_puesto foreign  key (id_puesto) references Puestos(id_puesto)
