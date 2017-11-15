@@ -9,7 +9,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/WebApplication1/Index">Inicio</a>
       </div>
-      <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav"><%-- Ir al Servlet No al JSP --%>
         <li><a href="/WebApplication1/AltaCliente.jsp">Registros Cliente</a></li>
         <li><a href="/WebApplication1/AltaPuesto.jsp">Registros Puesto</a></li>
         <li><a href="/WebApplication1/AltaAlquiler.jsp">Registros Alquiler</a></li>

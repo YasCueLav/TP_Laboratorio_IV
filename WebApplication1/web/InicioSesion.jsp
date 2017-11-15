@@ -15,12 +15,12 @@
     <body>
         <h1>Inicio Sesion</h1>
         
-        <form>
-            <label>Usuario </label><input type="text" name="usuario"/>
+        <form action="/Login" method="POST">
+            <label>Mail </label><input type="text" name="mail"/>
             <br/>
-            <label>Contraseña </label><input type="text" name="pas"/>
+            <label>Contraseña </label><input type="text" name="pass"/>
             <br/>
-            <input type="subit" value="Iniciar" class="btn btn-primary"/>
+            <input type="submit" value="Iniciar" class="btn btn-primary"/>
         </form>
     </body>
 </html>

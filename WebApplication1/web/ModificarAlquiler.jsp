@@ -17,7 +17,7 @@
         <h1>Modificar Alquiler</h1>
         
         
-        <from>
+        <from action="ModificarAlquiler" method="POST">
             <label>Documento Cliente</label> <input type="text" name="documentoCliente"/>
             <br/>
             <label>Puesto</label>

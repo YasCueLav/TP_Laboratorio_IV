@@ -10,6 +10,6 @@ package Controladores;
  * @author Yasmin
  */
 public class VariablesSesion {
-    public static final String mail = "1";
-    public static final String pass = "1";
+    public static final String mail = "yas";
+    public static final String pass = "1234";
 }

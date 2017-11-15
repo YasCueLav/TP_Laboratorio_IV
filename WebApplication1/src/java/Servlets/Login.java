@@ -64,8 +64,8 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         String mail = request.getParameter("mail");
-        String password = request.getParameter("pass");
-        if (mail.equals(VariablesSesion.mail) && password.equals(VariablesSesion.pass)) {
+        String pass = request.getParameter("pass");
+        if (mail.equals(VariablesSesion.mail) && pass.equals(VariablesSesion.pass)) {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
             getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
