@@ -16,7 +16,7 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Registro Puesto</h1>
         
-        <from>
+        <from action="AltaPuesto" method="POST">
             <label>Piso</label><input type="number" name="pisoPuesto" value="1" min="1" max="5"/>
             <br/>
             <label>Numero</label> <input type="number" name="numeroPuesto" value="1"  min="1"/>

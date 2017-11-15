@@ -16,7 +16,7 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Registro Alquiler</h1>
 
-        <from>
+        <from action="AltaAlquiler" method="POST">
             <label>Documento Cliente</label> <input type="text" name="documentoCliente"/>
             <br/>
             <label>Puesto</label>
@@ -30,7 +30,7 @@
             <br/>
             <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion" value="false"/>
             <br/>
-            <input type="subit" value="Cargar" class="btn btn-primary" />
+            <input type="submit" value="Cargar" class="btn btn-primary" />
         </from>        
     </body>
 </html>
