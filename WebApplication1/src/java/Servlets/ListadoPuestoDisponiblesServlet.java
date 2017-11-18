@@ -9,6 +9,7 @@ import Controladores.GestorPuesto;
 import Model.Puesto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Gabriel
  */
-public class AltaPuestoServlet extends HttpServlet {
+public class ListadoPuestoDisponiblesServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +34,6 @@ public class AltaPuestoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,13 +48,6 @@ public class AltaPuestoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession mySession = request.getSession();
-        boolean isLogged = (boolean) mySession.getAttribute("inicio");
-        if (isLogged) {
-            getServletContext().getRequestDispatcher("/AltaPuesto.jsp").forward(request, response);
-        } else {
-            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
-        }
         processRequest(request, response);
     }
 
@@ -69,31 +62,18 @@ public class AltaPuestoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int Piso = Integer.parseInt(request.getParameter("pisoPuesto"));
-        int Numero = Integer.parseInt(request.getParameter("numeroPuesto"));
-        int CantidadSillas = Integer.parseInt(request.getParameter("sillasExtra"));
-        String ventana = request.getParameter("ventana");
-        boolean tieneVentana;
-        if ("on".equals(ventana)) {
-            tieneVentana = true;
+        GestorPuesto gc = new GestorPuesto();
+        ArrayList<Puesto> puesto = gc.obtenerPuestos();
+
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            request.setAttribute("puesto", puesto);
+            getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
         } else {
-            tieneVentana = false;
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
         }
-        GestorPuesto gp = new GestorPuesto();
-        Puesto p = new Puesto();
-        p.setPiso(Piso);
-        p.setPuesto(Numero);
-        p.setCantSillas(CantidadSillas);
-        p.setVentana(tieneVentana);
-        if (gp.agregarPuesto(p)) {
-            HttpSession mySession = request.getSession();
-            mySession.setAttribute("inicio", true);
-            
-            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
-        } else {
-            getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
-            processRequest(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

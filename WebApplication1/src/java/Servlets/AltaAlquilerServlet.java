@@ -83,6 +83,8 @@ public class AltaAlquilerServlet extends HttpServlet {
         }
 
         if (ga.agregarAlquiler(a)) {
+            HttpSession mySession = request.getSession();
+            mySession.setAttribute("inicio", true);
             getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);

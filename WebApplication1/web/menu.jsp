@@ -11,9 +11,9 @@
       </div>
         <ul class="nav navbar-nav"><%-- Ir al Servlet No al JSP --%>
         <li><a href="/WebApplication1/AltaClienteServlet">Registros Cliente</a></li>
-        <li><a href="/WebApplication1/AltaPuesto.jsp">Registros Puesto</a></li>
-        <li><a href="/WebApplication1/AltaAlquiler.jsp">Registros Alquiler</a></li>
-        <li><a href="/WebApplication1/ModificarAlquiler.jsp">Modificar Alquiler</a></li>
+        <li><a href="/WebApplication1/AltaPuestoServlet">Registros Puesto</a></li>
+        <li><a href="/WebApplication1/AltaAlquilerServlet">Registros Alquiler</a></li>
+        <li><a href="/WebApplication1/ModificarAlquilerServlet">Modificar Alquiler</a></li>
         <li><a href="/WebApplication1/ListadoClientes.jsp">Listado de Clientes</a></li>
         <li><a href="/WebApplication1/ListadoCompletoPuestos.jsp">Listado de Completo de Puestos</a></li>
         <li><a href="/WebApplication1/TotalAlquilerXPiso.jsp">Total de alquiler por Piso</a></li>

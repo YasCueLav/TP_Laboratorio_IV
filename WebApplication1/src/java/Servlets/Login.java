@@ -70,8 +70,8 @@ public class Login extends HttpServlet {
             if (vs.getUsuarios().get(mail).equals(pass)) {
                 // logg
                 HttpSession mySession = request.getSession();
-                getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);//Ventana Menu Principal
                 mySession.setAttribute("inicio", true);
+                getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);//Ventana Menu Principal
                 System.out.println("si");
             } else {
                 // no match

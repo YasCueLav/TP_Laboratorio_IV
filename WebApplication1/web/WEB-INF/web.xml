@@ -9,20 +9,36 @@
         <servlet-class>Servlets.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegistrarClienteServlet</servlet-name>
+        <servlet-name>AltaClienteServlet</servlet-name>
         <servlet-class>Servlets.AltaClienteServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegistrarPuestoServlet</servlet-name>
+        <servlet-name>AltaPuestoServlet</servlet-name>
         <servlet-class>Servlets.AltaPuestoServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegistrarAlquilerServlet</servlet-name>
+        <servlet-name>AltaAlquilerServlet</servlet-name>
         <servlet-class>Servlets.AltaAlquilerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ModificarAlquilerServlet</servlet-name>
         <servlet-class>Servlets.ModificarAlquilerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListadoClientesServlet</servlet-name>
+        <servlet-class>Servlets.ListadoClientesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListadoCompletoPuestosServlet</servlet-name>
+        <servlet-class>Servlets.ListadoCompletoPuestosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListadoPuestoDisponiblesServlet</servlet-name>
+        <servlet-class>Servlets.ListadoPuestoDisponiblesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TotalAlquilerXPisoServlet</servlet-name>
+        <servlet-class>Servlets.TotalAlquilerXPisoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
@@ -33,20 +49,36 @@
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegistrarClienteServlet</servlet-name>
-        <url-pattern>/RegistrarClienteServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegistrarPuestoServlet</servlet-name>
-        <url-pattern>/RegistrarPuestoServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegistrarAlquilerServlet</servlet-name>
-        <url-pattern>/RegistrarAlquilerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ModificarAlquilerServlet</servlet-name>
         <url-pattern>/ModificarAlquilerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaClienteServlet</servlet-name>
+        <url-pattern>/AltaClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaPuestoServlet</servlet-name>
+        <url-pattern>/AltaPuestoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaAlquilerServlet</servlet-name>
+        <url-pattern>/AltaAlquilerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoClientesServlet</servlet-name>
+        <url-pattern>/ListadoClientesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoCompletoPuestosServlet</servlet-name>
+        <url-pattern>/ListadoCompletoPuestosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoPuestoDisponiblesServlet</servlet-name>
+        <url-pattern>/ListadoPuestoDisponiblesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TotalAlquilerXPisoServlet</servlet-name>
+        <url-pattern>/TotalAlquilerXPisoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
