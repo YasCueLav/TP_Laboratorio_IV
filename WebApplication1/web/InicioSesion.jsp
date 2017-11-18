@@ -15,7 +15,7 @@
     <body>
         <h1>Inicio Sesion</h1>
         
-        <form action="/Login" method="POST">
+        <form action="Login" method="POST">
             <label>Mail </label><input type="text" name="mail"/>
             <br/>
             <label>Contraseña </label><input type="text" name="pass"/>

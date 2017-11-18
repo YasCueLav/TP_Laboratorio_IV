@@ -5,11 +5,28 @@
  */
 package Controladores;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Yasmin
  */
 public class VariablesSesion {
-    public static final String mail = "yas";
-    public static final String pass = "1234";
+    public HashMap<String, String> usuarios;
+
+    public VariablesSesion() {
+        usuarios = new HashMap<>();
+        
+        usuarios.put("GabrielSoto", "2703");
+        usuarios.put("MagaliPacheco", "1802");
+        usuarios.put("YasminCueva", "0305");
+        usuarios.put("LeonelZambroni", "2001");
+    }
+
+    public HashMap<String, String> getUsuarios() {
+        return usuarios;
+    }
+    
+    
+    
 }

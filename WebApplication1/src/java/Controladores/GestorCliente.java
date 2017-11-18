@@ -5,10 +5,21 @@
  */
 package Controladores;
 
+import Model.Cliente;
+import java.util.ArrayList;
+
 /**
  *
  * @author Yasmin
  */
 public class GestorCliente {
+
+    public ArrayList<Cliente> obtenerClientes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean agregarCliente(Cliente c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -10,11 +10,20 @@ package Model;
  * @author Yasmin
  */
 public class Puesto {
+
     int idPuesto;
     int puesto;
     int piso;
     boolean ventana;
     int cantSillas;
+
+    public int getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(int puesto) {
+        this.puesto = puesto;
+    }
 
     public Puesto() {
     }
