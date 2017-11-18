@@ -51,7 +51,7 @@ public class GestorPuesto {
     }
 
     public boolean agregarPuesto(Puesto p) {
-        boolean inserto = false;
+        boolean inserto = true;
         try {
             PreparedStatement stmt = conn.prepareStatement("exec pa_insert_puesto ?, ?, ?, ?, ?");
             stmt.setInt(1, p.getPuesto());
@@ -61,11 +61,10 @@ public class GestorPuesto {
             stmt.executeUpdate();
             stmt.close();
             conn.close();
-
             System.out.println("Se ha insertado un nuevo registro");
         } catch (SQLException ex) {
             Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
-            inserto = true;
+            inserto = false;
         }
         return inserto;
     }
