@@ -21,5 +21,9 @@ public class GestorCliente {
     public boolean agregarCliente(Cliente c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    Cliente obtenerCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
