@@ -74,6 +74,7 @@ public class GestorPuesto {
         try {
             
             PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_un_puesto ?");
+            stmt.setInt(1, idPuesto);
             ResultSet query = stmt.executeQuery();
             if(query.next()){
                 p.setIdPuesto(query.getInt("id_puesto"));
