@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model;
 
-/**
- *
- * @author Yasmin
- */
 public class Puesto {
 
     int idPuesto;
@@ -16,6 +8,16 @@ public class Puesto {
     int piso;
     boolean ventana;
     int cantSillas;
+    boolean disponible;
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }   
+    
 
     public int getPuesto() {
         return puesto;
@@ -23,17 +25,7 @@ public class Puesto {
 
     public void setPuesto(int puesto) {
         this.puesto = puesto;
-    }
-
-    public Puesto() {
-    }
-
-    public Puesto(int idPuesto, int piso, boolean ventana, int cantSillas) {
-        this.idPuesto = idPuesto;
-        this.piso = piso;
-        this.ventana = ventana;
-        this.cantSillas = cantSillas;
-    }
+    }    
 
     public int getIdPuesto() {
         return idPuesto;
@@ -66,4 +58,18 @@ public class Puesto {
     public void setCantSillas(int cantSillas) {
         this.cantSillas = cantSillas;
     }
+
+    public Puesto() {
+    }
+
+    public Puesto(int idPuesto, int puesto, int piso, boolean ventana, int cantSillas, boolean disponible) {
+        this.idPuesto = idPuesto;
+        this.puesto = puesto;
+        this.piso = piso;
+        this.ventana = ventana;
+        this.cantSillas = cantSillas;
+        this.disponible = disponible;
+    }
+    
+    
 }
