@@ -15,6 +15,6 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <div>hdsbfdsvbhfvbfhdkvbhgfbjfdkl</div>
+        <div></div>
     </body>
 </html>
