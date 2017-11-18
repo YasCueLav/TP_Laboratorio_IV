@@ -27,7 +27,8 @@ create table Puestos
 	nombre int,
 	piso int,
 	ventana bit,
-	cant_sillas int
+	cant_sillas int,
+        disponible bit
 	constraint pk_puesto primary key (id_puesto) 
 )
 

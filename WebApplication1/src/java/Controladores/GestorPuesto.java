@@ -1,25 +1,96 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controladores;
 
 import Model.Puesto;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author Yasmin
- */
 public class GestorPuesto {
 
+    private Connection conn;
+
+    public GestorPuesto() {
+
+        AccesoDatos ad = new AccesoDatos();
+        try {
+            conn = DriverManager.getConnection(ad.getConn_string(), ad.getUser(), ad.getPass());
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public ArrayList<Puesto> obtenerPuestos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Puesto> lista = new ArrayList<Puesto>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * from Puestos");
+            while (query.next()) {
+                Puesto p = new Puesto();
+                p.setIdPuesto(query.getInt("id_puesto"));
+                p.setPuesto(query.getInt("nombre"));
+                p.setPiso(query.getInt("piso"));
+                p.setVentana(query.getBoolean("ventana"));
+                p.setCantSillas(query.getInt("cant_sillas"));
+                p.setDisponible(query.getBoolean("disponible"));
+                lista.add(p);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     public boolean agregarPuesto(Puesto p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean inserto = false;
+        try {
+            PreparedStatement stmt = conn.prepareStatement("exec pa_insert_puesto ?, ?, ?, ?, ?");
+            stmt.setInt(1, p.getPuesto());
+            stmt.setInt(2, p.getPiso());
+            stmt.setBoolean(3, p.isVentana());
+            stmt.setInt(4, p.getCantSillas());
+            stmt.executeUpdate();
+            stmt.close();
+            conn.close();
+
+            System.out.println("Se ha insertado un nuevo registro");
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
+            inserto = true;
+        }
+        return inserto;
     }
     
+    public Puesto obtenerPuesto(int idPuesto){
+        Puesto p = new Puesto();
+        try {
+            
+            PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_un_puesto ?");
+            ResultSet query = stmt.executeQuery();
+            if(query.next()){
+                p.setIdPuesto(query.getInt("id_puesto"));
+                p.setPuesto(query.getInt("nombre"));
+                p.setPiso(query.getInt("piso"));
+                p.setVentana(query.getBoolean("ventana"));
+                p.setCantSillas(query.getInt("cant_sillas"));
+                p.setDisponible(query.getBoolean("disponible"));
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+
 }
