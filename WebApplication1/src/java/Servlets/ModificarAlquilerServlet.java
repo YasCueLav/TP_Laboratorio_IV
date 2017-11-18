@@ -5,20 +5,25 @@
  */
 package Servlets;
 
+import Controladores.GestorAlquiler;
+import Controladores.GestorCliente;
+import Controladores.GestorPuesto;
+import Model.Alquiler;
+import Model.Cliente;
+import Model.Puesto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import Controladores.VariablesSesion;
 
 /**
  *
- * @author Yasmin
+ * @author Gabriel
  */
-public class Login extends HttpServlet {
+public class ModificarAlquilerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +40,7 @@ public class Login extends HttpServlet {
 
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,8 +52,20 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("idAlquiler"));
+        GestorAlquiler ga = new GestorAlquiler();
+        Alquiler a;
+        a = ga.obtenerAlquiler(id);
+        GestorCliente gc = new GestorCliente();
+        ArrayList<Cliente> clientes = gc.obtenerClientes();
+        GestorPuesto gp = new GestorPuesto();
+        ArrayList<Puesto> puestos = gp.obtenerPuestos();
+        request.setAttribute("alquiler", a);
+        request.setAttribute("clientes", clientes);
+        request.setAttribute("puestos", puestos);
+
+        getServletContext().getRequestDispatcher("/ModificarAlquiler.jsp").forward(request, response);
         processRequest(request, response);
-        getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
     }
 
     /**
@@ -62,26 +79,28 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        String mail = request.getParameter("mail");
-        String pass = request.getParameter("pass");
-        VariablesSesion vs = new VariablesSesion();
-        if (vs.getUsuarios().containsKey(mail)) {
-            if (vs.getUsuarios().get(mail).equals(pass)) {
-                // logg
-                HttpSession mySession = request.getSession();
-                getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);//Ventana Menu Principal
-                mySession.setAttribute("inicio", true);
-                System.out.println("si");
-            } else {
-                // no match
-                System.out.println("no match");
-                //getServletContext().getRequestDispatcher("/incorrecto.jsp").forward(request, response);/*VENTANA INCORRECTO*/
-            }
+
+        Alquiler a = new Alquiler();
+        a.setIdAlquiler(Integer.parseInt(request.getParameter("idAlquiler")));
+        a.setIdCliente(Integer.parseInt(request.getParameter("cliente")));
+        a.setIdPuesto(Integer.parseInt(request.getParameter("puesto")));
+        a.setCanEquipo(Integer.parseInt(request.getParameter("canEquipo")));
+        a.setSillasExtras(Integer.parseInt(request.getParameter("sillasExtra")));
+
+        String salaReunion = request.getParameter("salaReunion");
+        if ("on".equals(salaReunion)) {
+            a.setSalaReunion(true);
         } else {
-            // no user found
-            System.out.println("no user");
+            a.setSalaReunion(false);
         }
+
+        //modificar el alquiler
+        //if(modificaralquiler)
+        getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+        //else
+        
+        getServletContext().getRequestDispatcher("/Hubo un Error.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

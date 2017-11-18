@@ -8,6 +8,22 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Servlets.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarClienteServlet</servlet-name>
+        <servlet-class>Servlets.AltaClienteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarPuestoServlet</servlet-name>
+        <servlet-class>Servlets.AltaPuestoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarAlquilerServlet</servlet-name>
+        <servlet-class>Servlets.AltaAlquilerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarAlquilerServlet</servlet-name>
+        <servlet-class>Servlets.ModificarAlquilerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarClienteServlet</servlet-name>
+        <url-pattern>/RegistrarClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarPuestoServlet</servlet-name>
+        <url-pattern>/RegistrarPuestoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarAlquilerServlet</servlet-name>
+        <url-pattern>/RegistrarAlquilerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarAlquilerServlet</servlet-name>
+        <url-pattern>/ModificarAlquilerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

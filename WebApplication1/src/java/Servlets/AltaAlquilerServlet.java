@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import Controladores.GestorAlquiler;
+import Model.Alquiler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,13 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import Controladores.VariablesSesion;
 
 /**
  *
- * @author Yasmin
+ * @author Gabriel
  */
-public class Login extends HttpServlet {
+public class AltaAlquilerServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +36,7 @@ public class Login extends HttpServlet {
 
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,8 +48,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            getServletContext().getRequestDispatcher("/AltaAlquiler.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
+        }
         processRequest(request, response);
-        getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
     }
 
     /**
@@ -62,26 +69,25 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        String mail = request.getParameter("mail");
-        String pass = request.getParameter("pass");
-        VariablesSesion vs = new VariablesSesion();
-        if (vs.getUsuarios().containsKey(mail)) {
-            if (vs.getUsuarios().get(mail).equals(pass)) {
-                // logg
-                HttpSession mySession = request.getSession();
-                getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);//Ventana Menu Principal
-                mySession.setAttribute("inicio", true);
-                System.out.println("si");
-            } else {
-                // no match
-                System.out.println("no match");
-                //getServletContext().getRequestDispatcher("/incorrecto.jsp").forward(request, response);/*VENTANA INCORRECTO*/
-            }
+        Alquiler a = new Alquiler();
+        GestorAlquiler ga = new GestorAlquiler();
+        a.setIdCliente(Integer.parseInt(request.getParameter("Cliente")));
+        a.setIdPuesto(Integer.parseInt(request.getParameter("Puesto")));
+        a.setCanEquipo(Integer.parseInt(request.getParameter("CantidadEquipo")));
+        a.setSillasExtras(Integer.parseInt(request.getParameter("CantidadSilla")));
+        String salaReuniones = request.getParameter("SalaDeReunion");
+        if ("on".equals(salaReuniones)) {
+            a.setSalaReunion(true);
         } else {
-            // no user found
-            System.out.println("no user");
+            a.setSalaReunion(false);
         }
+
+        if (ga.agregarAlquiler(a)) {
+            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
+        }
+        processRequest(request, response);
     }
 
     /**

@@ -5,10 +5,21 @@
  */
 package Controladores;
 
+import Model.Puesto;
+import java.util.ArrayList;
+
 /**
  *
  * @author Yasmin
  */
 public class GestorPuesto {
+
+    public ArrayList<Puesto> obtenerPuestos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean agregarPuesto(Puesto p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import Controladores.GestorPuesto;
+import Model.Puesto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,13 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import Controladores.VariablesSesion;
 
 /**
  *
- * @author Yasmin
+ * @author Gabriel
  */
-public class Login extends HttpServlet {
+public class AltaPuestoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +36,7 @@ public class Login extends HttpServlet {
 
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,8 +48,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            getServletContext().getRequestDispatcher("/AltaPuesto.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
+        }
         processRequest(request, response);
-        getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
     }
 
     /**
@@ -62,25 +69,27 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        String mail = request.getParameter("mail");
-        String pass = request.getParameter("pass");
-        VariablesSesion vs = new VariablesSesion();
-        if (vs.getUsuarios().containsKey(mail)) {
-            if (vs.getUsuarios().get(mail).equals(pass)) {
-                // logg
-                HttpSession mySession = request.getSession();
-                getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);//Ventana Menu Principal
-                mySession.setAttribute("inicio", true);
-                System.out.println("si");
-            } else {
-                // no match
-                System.out.println("no match");
-                //getServletContext().getRequestDispatcher("/incorrecto.jsp").forward(request, response);/*VENTANA INCORRECTO*/
-            }
+        int Piso = Integer.parseInt(request.getParameter("pisoPuesto"));
+        int Numero = Integer.parseInt(request.getParameter("numeroPuesto"));
+        int CantidadSillas = Integer.parseInt(request.getParameter("sillasExtra"));
+        String ventana = request.getParameter("ventana");
+        boolean tieneVentana;
+        if ("on".equals(ventana)) {
+            tieneVentana = true;
         } else {
-            // no user found
-            System.out.println("no user");
+            tieneVentana = false;
+        }
+        GestorPuesto gp = new GestorPuesto();
+        Puesto p = new Puesto();
+        p.setPiso(Piso);
+        p.setPuesto(Numero);
+        p.setCantSillas(CantidadSillas);
+        p.setVentana(tieneVentana);
+        if (gp.agregarPuesto(p)) {
+            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
+            processRequest(request, response);
         }
     }
 
