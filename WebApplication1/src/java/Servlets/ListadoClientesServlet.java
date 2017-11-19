@@ -7,6 +7,7 @@ package Servlets;
 
 import Controladores.GestorCliente;
 import Model.Cliente;
+import Model.VMLlstadoCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class ListadoClientesServlet extends HttpServlet {
             throws ServletException, IOException {
 
         GestorCliente gc = new GestorCliente();
-        ArrayList<Cliente> clientes = gc.obtenerClientes();
+        ArrayList<VMLlstadoCliente> clientes = gc.obtenerListadoCliente();
 
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");

@@ -36,8 +36,11 @@
                     </c:if>
                     <c:if test="${!a.getSalaReunion}">
                         <td>No Tiene</td>
+                    </c:if>
+                    <td><a href="/WebApplication1/ModificarAlquilerServlet?idAlquiler=${rentalV.getIdRental()}">Editar</a></td>
                 </tr>
             </c:forEach>
+                        
         </table>
     </body>
 </html>

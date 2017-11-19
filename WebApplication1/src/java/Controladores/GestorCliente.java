@@ -8,6 +8,7 @@ package Controladores;
 import Model.Alquiler;
 import Model.Cliente;
 import Model.Puesto;
+import Model.VMLlstadoCliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -100,6 +101,10 @@ public class GestorCliente {
             Logger.getLogger(GestorCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+    }
+
+    public ArrayList<VMLlstadoCliente> obtenerListadoCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
