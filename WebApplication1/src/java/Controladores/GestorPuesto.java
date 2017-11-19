@@ -37,7 +37,7 @@ public class GestorPuesto {
                 p.setPiso(query.getInt("piso"));
                 p.setVentana(query.getBoolean("ventana"));
                 p.setCantSillas(query.getInt("cant_sillas"));
-                p.setDisponible(query.getBoolean("disponible"));
+                p.setDisponible(query.getBoolean("disponible"));                
                 lista.add(p);
             }
             query.close();
@@ -53,12 +53,13 @@ public class GestorPuesto {
     public boolean agregarPuesto(Puesto p) {
         boolean inserto = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_puesto ?, ?, ?, ?, ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_puesto ?, ?, ?, ?, ?, ?");
             stmt.setInt(1, p.getPuesto());
             stmt.setInt(2, p.getPiso());
             stmt.setBoolean(3, p.isVentana());
             stmt.setInt(4, p.getCantSillas());
             stmt.setBoolean(5, p.isDisponible());
+            stmt.setDouble(6, p.getPrecioBase());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
