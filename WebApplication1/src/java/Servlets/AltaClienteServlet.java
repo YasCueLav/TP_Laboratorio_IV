@@ -9,6 +9,7 @@ import Controladores.GestorCliente;
 import Model.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,9 +49,12 @@ public class AltaClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        GestorCliente gc = new GestorCliente();
+        ArrayList<Cliente> clientes = gc.obtenerClientes();
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            request.setAttribute("clientes", clientes);
             getServletContext().getRequestDispatcher("/AltaCliente.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
