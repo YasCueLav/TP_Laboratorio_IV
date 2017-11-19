@@ -79,13 +79,12 @@ public class GestorAlquiler {
     public boolean modificarAlquiler(Alquiler a) {
         boolean modifico = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_update_alquiler ?, ?, ?, ?, ?, ?");
-            stmt.setInt(1, a.getIdCliente());
-            stmt.setInt(2, a.getIdPuesto());
-            stmt.setInt(3, a.getCanEquipo());
-            stmt.setInt(4, a.getSillasExtras());
-            stmt.setBoolean(5, a.isSalaReunion());
-            stmt.setDouble(6, a.getImporte());
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_update_alquiler ?, ?, ?, ?, ?");
+            stmt.setInt(2, a.getCanEquipo());
+            stmt.setInt(3, a.getSillasExtras());
+            stmt.setBoolean(4, a.isSalaReunion());
+            stmt.setDouble(5, a.getImporte());
+            stmt.setInt(1, a.getIdAlquiler());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
