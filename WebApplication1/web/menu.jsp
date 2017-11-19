@@ -15,6 +15,7 @@
         <li><a href="/WebApplication1/AltaAlquilerServlet">Registros Alquiler</a></li>
         <li><a href="/WebApplication1/ListadoAlquileresServlet">Modificar Alquiler</a></li>
         <li><a href="/WebApplication1/ListadoClientesServlet">Listado de Clientes</a></li>
+        <li><a href="/WebApplication1/ListadoClientesPuestos">Listado de Clientes Filtor</a></li>
         <li><a href="/WebApplication1/ListadoCompletoPuestosServlet">Listado Completo de Puestos</a></li>
         <li><a href="/WebApplication1/TotalAlquilerXPisoServlet">Total de alquiler por Piso</a></li>
         <c:if test="${inicio}">
