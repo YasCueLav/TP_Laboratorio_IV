@@ -15,7 +15,7 @@
         <h3>Selecionar el que desea modificar</h3>
         
         
-        <table>
+        <table border="1">
             <tr>
                 <th>Id alquiler</th>
                 <th>Cliente</th>
