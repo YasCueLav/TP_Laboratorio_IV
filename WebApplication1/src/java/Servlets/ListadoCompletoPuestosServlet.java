@@ -34,6 +34,16 @@ public class ListadoCompletoPuestosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        GestorPuesto gp = new GestorPuesto();
+        ArrayList<Puesto> puestos = gp.obtenerPuestos();
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            request.setAttribute("puestos", puestos);
+            getServletContext().getRequestDispatcher("/AltaPuesto.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
+        }
         response.setContentType("text/html;charset=UTF-8");
     }
 

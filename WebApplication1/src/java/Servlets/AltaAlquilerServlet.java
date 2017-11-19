@@ -6,9 +6,14 @@
 package Servlets;
 
 import Controladores.GestorAlquiler;
+import Controladores.GestorCliente;
+import Controladores.GestorPuesto;
 import Model.Alquiler;
+import Model.Cliente;
+import Model.Puesto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,9 +53,17 @@ public class AltaAlquilerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        GestorCliente gc = new GestorCliente();
+        GestorPuesto gp = new GestorPuesto();
+        
+        ArrayList<Cliente> clientes = gc.obtenerClientes();
+        ArrayList<Puesto> puestos = gp.obtenerPuestos();
+        
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            request.setAttribute("clientes", clientes);
+            request.setAttribute("puestos", puestos);
             getServletContext().getRequestDispatcher("/AltaAlquiler.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
