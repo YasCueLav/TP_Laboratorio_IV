@@ -1,0 +1,5 @@
+create view vw_lista_clientes_general
+as
+select c.nombre + ' ' + c.apellido 'Nombre Completo', COUNT(a.id_puesto) 'Cantidad de Puestos', SUM(a.importe)'Importe Total'
+from Clientes c join Alquileres a on a.id_cliente = c.id_cliente
+group by c.nombre + ' ' + c.apellido
