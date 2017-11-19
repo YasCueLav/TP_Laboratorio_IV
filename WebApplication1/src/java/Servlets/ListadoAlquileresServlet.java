@@ -49,11 +49,11 @@ public class ListadoAlquileresServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        GestorAlquiler ga = new GestorAlquiler();
-        ArrayList<Alquiler> alquileres = ga.obtenerAlquileres();
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            GestorAlquiler ga = new GestorAlquiler();
+            ArrayList<Alquiler> alquileres = ga.obtenerAlquileres();
             request.setAttribute("alquileres", alquileres);
             getServletContext().getRequestDispatcher("/ListadoAlquileres.jsp").forward(request, response);
         } else {

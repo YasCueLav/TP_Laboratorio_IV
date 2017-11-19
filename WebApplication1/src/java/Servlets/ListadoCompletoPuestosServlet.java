@@ -49,12 +49,12 @@ public class ListadoCompletoPuestosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        GestorPuesto gp = new GestorPuesto();
-        ArrayList<Puesto> puestos = gp.obtenerPuestos();
 
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            GestorPuesto gp = new GestorPuesto();
+            ArrayList<Puesto> puestos = gp.obtenerPuestos();
             request.setAttribute("puestos", puestos);
             getServletContext().getRequestDispatcher("/ListadoCompletoPuestos.jsp").forward(request, response);
         } else {

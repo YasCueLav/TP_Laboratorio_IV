@@ -53,13 +53,13 @@ public class AltaAlquilerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        GestorCliente gc = new GestorCliente();
-        ArrayList<Cliente> clientes = gc.obtenerClientes();
-        GestorPuesto gp = new GestorPuesto();
-        ArrayList<Puesto> puestos = gp.obtenerPuestos();
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            GestorCliente gc = new GestorCliente();
+            ArrayList<Cliente> clientes = gc.obtenerClientes();
+            GestorPuesto gp = new GestorPuesto();
+            ArrayList<Puesto> puestos = gp.obtenerPuestos();
             request.setAttribute("clientes", clientes);
             request.setAttribute("puestos", puestos);
             getServletContext().getRequestDispatcher("/AltaAlquiler.jsp").forward(request, response);
@@ -96,7 +96,7 @@ public class AltaAlquilerServlet extends HttpServlet {
         if (ga.agregarAlquiler(a)) {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
-            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
         }

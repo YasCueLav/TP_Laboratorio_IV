@@ -51,11 +51,11 @@ public class AltaClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Gestortipodocumento gc = new Gestortipodocumento();
-        ArrayList<TipoDocumento> documentos = gc.obtenerTiposDocumento();
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            Gestortipodocumento gc = new Gestortipodocumento();
+            ArrayList<TipoDocumento> documentos = gc.obtenerTiposDocumento();
             request.setAttribute("clientes", documentos);
             getServletContext().getRequestDispatcher("/AltaCliente.jsp").forward(request, response);
         } else {
@@ -87,8 +87,8 @@ public class AltaClienteServlet extends HttpServlet {
         if (gc.agregarCliente(c)) {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
-            
-            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+
+            getServletContext().getRequestDispatcher("/Exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
         }

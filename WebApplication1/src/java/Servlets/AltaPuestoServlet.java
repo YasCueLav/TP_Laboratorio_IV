@@ -89,7 +89,7 @@ public class AltaPuestoServlet extends HttpServlet {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
             
-            getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
             processRequest(request, response);

@@ -5,12 +5,17 @@
  */
 package Servlets;
 
+import Controladores.GestorAlquiler;
+import Controladores.GestorCliente;
+import Model.VMLlstadoCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +35,7 @@ public class ListadoClientePuestoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,6 +50,16 @@ public class ListadoClientePuestoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            GestorCliente ga = new GestorCliente();
+            ArrayList<VMLlstadoCliente> alquileres = ga.obtenerListadoCliente();
+            request.setAttribute("alquileres", alquileres);
+            getServletContext().getRequestDispatcher("/ListadoClientesPuestos.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
+        }
         processRequest(request, response);
     }
 
@@ -59,6 +74,7 @@ public class ListadoClientePuestoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         processRequest(request, response);
     }
 
