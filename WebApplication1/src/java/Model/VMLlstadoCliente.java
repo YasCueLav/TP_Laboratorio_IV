@@ -11,9 +11,16 @@ package Model;
  */
 public class VMLlstadoCliente {
     String nombreCliente;
-    int nroPiso;
-    int nombrePuesto;
+    int cantidadPuesto;
     double totalGasto;
+
+    public int getCantidadPuesto() {
+        return cantidadPuesto;
+    }
+
+    public void setCantidadPuesto(int cantidadPuesto) {
+        this.cantidadPuesto = cantidadPuesto;
+    }
 
     public String getNombreCliente() {
         return nombreCliente;
@@ -21,22 +28,6 @@ public class VMLlstadoCliente {
 
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
-    }
-
-    public int getNroPiso() {
-        return nroPiso;
-    }
-
-    public void setNroPiso(int nroPiso) {
-        this.nroPiso = nroPiso;
-    }
-
-    public int getNombrePuesto() {
-        return nombrePuesto;
-    }
-
-    public void setNombrePuesto(int nombrePuesto) {
-        this.nombrePuesto = nombrePuesto;
     }
 
     public double getTotalGasto() {
@@ -50,10 +41,9 @@ public class VMLlstadoCliente {
     public VMLlstadoCliente() {
     }
 
-    public VMLlstadoCliente(String nombreCliente, int nroPiso, int nombrePuesto, double totalGasto) {
+    public VMLlstadoCliente(String nombreCliente, double totalGasto, int cantidadPuesto) {
         this.nombreCliente = nombreCliente;
-        this.nroPiso = nroPiso;
-        this.nombrePuesto = nombrePuesto;
+        this.cantidadPuesto = cantidadPuesto;
         this.totalGasto = totalGasto;
     }
     
