@@ -1,0 +1,48 @@
+-------------------------------------------
+--CONSULTAS/LISTADOS
+-------------------------------------------
+
+--PUESTOS
+
+GO
+--OBTENER UN SOLO PUESTO
+CREATE PROC pa_obtener_un_puesto
+@idPuesto int
+AS
+BEGIN
+select * from Puestos where id_puesto = @idPuesto
+END
+
+GO
+--OBTENER PUESTOS DISPONIBLES
+CREATE VIEW vw_obtener_puestos_disponibles
+as
+SELECT nombre, piso, ventana, cant_sillas from Puestos where disponible = 1
+
+--CLIENTES
+
+GO
+--OBTENER UN SOLO CLIENTE
+CREATE PROC pa_obtener_cliente
+@idCliente int
+AS
+BEGIN
+SELECT * FROM Clientes where id_cliente = @idCliente
+END
+
+--ALQUILERES
+
+GO
+--OBTENER UN SOLO ALQUILER
+CREATE PROC pa_obtener_un_alquiler
+@idAlquiler int
+AS
+BEGIN
+SELECT * FROM Alquileres where id_alquiler = @idAlquiler
+END
+
+
+
+
+
+
