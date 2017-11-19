@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -74,6 +75,31 @@ public class GestorCliente {
             inserto = false;
         }
         return inserto;
+    }
+    public ArrayList<Cliente> obtenerClientes() {
+        ArrayList<Cliente> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * from Puestos");
+            while (query.next()) {
+                Cliente c = new Cliente();
+                c.setIdCliente(query.getInt("id_cliente"));
+                c.setNombre(query.getString("nombre"));
+                c.setApellido(query.getString("apellido"));
+                c.setDocumento(query.getInt("documento"));
+                c.setIdTipoDocumento(query.getInt("id_tipo_documento"));
+                c.setTelefono(query.getLong("telefono"));
+                
+                lista.add(c);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
 }
