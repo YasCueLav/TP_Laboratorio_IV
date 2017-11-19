@@ -1,0 +1,5 @@
+CREATE VIEW vw_obtener_alquileres_por_piso
+AS
+select p.piso, sum(a.importe) 'Importe Total'
+from Alquileres a join Puestos p on a.id_puesto = p.id_puesto
+group by p.piso
