@@ -16,18 +16,20 @@ public class Alquiler {
     int canEquipo;
     int sillasExtras;
     boolean salaReunion;
+    double importe;
 
     public Alquiler() {
     }
 
-    public Alquiler(int idAlquiler, int idCliente, int idPuesto, int canEquipo, int sillasExtras, boolean salaReunion) {
+    public Alquiler(int idAlquiler, int idCliente, int idPuesto, int canEquipo, int sillasExtras, boolean salaReunion, double importe) {
         this.idAlquiler = idAlquiler;
         this.idCliente = idCliente;
         this.idPuesto = idPuesto;
         this.canEquipo = canEquipo;
         this.sillasExtras = sillasExtras;
         this.salaReunion = salaReunion;
-    }
+        this.importe = importe;
+    }    
 
     public int getIdAlquiler() {
         return idAlquiler;
@@ -76,5 +78,15 @@ public class Alquiler {
     public void setSalaReunion(boolean salaReunion) {
         this.salaReunion = salaReunion;
     }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+    
+    
     
 }
