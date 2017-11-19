@@ -9,10 +9,11 @@ CREATE PROC pa_insert_puesto
 @piso int,
 @ventana bit,
 @cantSillas int,
-@disponible bit
+@disponible bit,
+@precioBase decimal(7,2)
 as
 begin
-insert into Puestos values (@nombre, @piso, @ventana, @cantSillas, @disponible)
+insert into Puestos values (@nombre, @piso, @ventana, @cantSillas, @disponible, precioBase)
 end
 --------------------------------------------------
 GO
