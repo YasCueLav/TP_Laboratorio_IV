@@ -52,7 +52,7 @@ public class ListadoPuestoDisponiblesServlet extends HttpServlet {
         ArrayList<Puesto> puesto = gc.obtenerPuestos();
 
         request.setAttribute("puesto", puesto);
-        getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/ListadoPuestoDisponibles.jsp").forward(request, response);
         processRequest(request, response);
 
     }

@@ -56,7 +56,7 @@ public class ListadoCompletoPuestosServlet extends HttpServlet {
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
             request.setAttribute("puestos", puestos);
-            getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/ListadoCompletoPuestos.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
         }

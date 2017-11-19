@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -51,6 +52,14 @@ public class TotalAlquilerXPisoServlet extends HttpServlet {
             throws ServletException, IOException {
         GestorAlquiler ga = new GestorAlquiler();
         ArrayList<VMTotalAlquilerXPiso> alquileres = ga.obtenerAlquileresXPiso();
+        HttpSession mySession = request.getSession();
+        boolean isLogged = (boolean) mySession.getAttribute("inicio");
+        if (isLogged) {
+            request.setAttribute("alquileres", alquileres);
+            getServletContext().getRequestDispatcher("/TotalAlquileresXPiso.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
+        }
         processRequest(request, response);
     }
 
