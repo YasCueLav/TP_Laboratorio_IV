@@ -42,6 +42,7 @@ public class GestorAlquiler {
                 a.setCanEquipo(query.getInt("cant_equipos"));
                 a.setSillasExtras(query.getInt("sillas_extras"));
                 a.setSalaReunion(query.getBoolean("sala_reunion"));
+                a.setImporte(query.getDouble("importe"));
 
             }
             query.close();
@@ -58,12 +59,13 @@ public class GestorAlquiler {
 
         boolean inserto = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_alquiler ?, ?, ?, ?, ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_alquiler ?, ?, ?, ?, ?, ?");
             stmt.setInt(1, a.getIdCliente());
             stmt.setInt(2, a.getIdPuesto());
             stmt.setInt(3, a.getCanEquipo());
             stmt.setInt(4, a.getSillasExtras());
             stmt.setBoolean(5, a.isSalaReunion());
+            stmt.setDouble(6, a.getImporte());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
@@ -77,12 +79,13 @@ public class GestorAlquiler {
     public boolean modificarAlquiler(Alquiler a) {
         boolean modifico = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_update_alquiler ?, ?, ?, ?, ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_update_alquiler ?, ?, ?, ?, ?, ?");
             stmt.setInt(1, a.getIdCliente());
             stmt.setInt(2, a.getIdPuesto());
             stmt.setInt(3, a.getCanEquipo());
             stmt.setInt(4, a.getSillasExtras());
             stmt.setBoolean(5, a.isSalaReunion());
+            stmt.setDouble(6, a.getImporte());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
@@ -106,6 +109,7 @@ public class GestorAlquiler {
                 a.setCanEquipo(query.getInt("cant_equipos"));
                 a.setSillasExtras(query.getInt("sillas_extras"));
                 a.setSalaReunion(query.getBoolean("sala_reunion"));
+                a.setImporte(query.getDouble("importe"));
                 lista.add(a);
             }
             query.close();
