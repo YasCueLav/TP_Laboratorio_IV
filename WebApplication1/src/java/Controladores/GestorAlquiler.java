@@ -71,10 +71,6 @@ public class GestorAlquiler {
         return inserto;
     }
 
-    public ArrayList<VMAlquiler> obtenerAlquileresPorPiso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public boolean modificarAlquiler(Alquiler a) {
         boolean modifico = true;
         try {

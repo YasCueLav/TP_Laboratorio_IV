@@ -50,12 +50,12 @@ public class TotalAlquilerXPisoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         GestorAlquiler ga = new GestorAlquiler();
-        ArrayList<VMAlquiler> alquileres = ga.obtenerAlquileresPorPiso();
+//        ArrayList<VMAlquiler> alquileres = ga.obtenerAlquileresPorPiso();
 
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
-            request.setAttribute("alquileres", alquileres);
+//            request.setAttribute("alquileres", alquileres);
             getServletContext().getRequestDispatcher("/TotalAlquilerXPiso.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
