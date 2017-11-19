@@ -44,6 +44,10 @@
         <servlet-name>ListadoAlquileresServlet</servlet-name>
         <servlet-class>Servlets.ListadoAlquileresServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListadoClientePuestoServlet</servlet-name>
+        <servlet-class>Servlets.ListadoClientePuestoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ListadoAlquileresServlet</servlet-name>
         <url-pattern>/ListadoAlquileresServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoClientePuestoServlet</servlet-name>
+        <url-pattern>/ListadoClientePuestoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
