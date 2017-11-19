@@ -17,17 +17,19 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Listado Clientes Individual</h1>
         
-        <c:forEach items="${cliente}" var="c">
-            <div>
-                <b>Cliente </b> nombre + Apellido
-                </br>
-                <b>Puestos </b>
-                <c:forEach items="${puesto}" var="p">
-                    nombre + piso for br x c/u
-                </c:forEach>
-                </br>
-                <b>Importe Total</b> importe
-            </div>
-        </c:forEach>
+        <table border="1">
+            <tr>
+                <th>Cliente</th>
+                <th>Cantidad de Puestos</th>
+                <th>Importe Total</th>
+            </tr>
+            <c:forEach items="${cliente}" var="c">
+                <tr>
+                    <td>${c.getNombre}</td>
+                    <td>${c.getCanidadPiso}</td>
+                    <td>${c.getTotal}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>

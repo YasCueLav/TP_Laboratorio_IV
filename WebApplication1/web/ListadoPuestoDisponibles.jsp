@@ -16,7 +16,8 @@
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Listado de Puesto Disponibles</h1>
-        <table>
+        
+        <table border="1">
             <tr>
                 <th>getPuesto</th>
                 <th>Piso</th>
