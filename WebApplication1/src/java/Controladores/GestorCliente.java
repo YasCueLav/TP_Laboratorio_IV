@@ -36,7 +36,7 @@ public class GestorCliente {
         
         Cliente c = new Cliente();
         try {
-            PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_alquiler ?");
+            PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_cliente ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
             if(query.next()){            
@@ -61,7 +61,7 @@ public class GestorCliente {
 
         boolean inserto = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_alquiler ?, ?, ?, ?, ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_cliente ?, ?, ?, ?, ?");
             stmt.setString(1, c.getNombre());
             stmt.setString(2, c.getApellido());
             stmt.setInt(3, c.getDocumento());
@@ -80,7 +80,7 @@ public class GestorCliente {
         ArrayList<Cliente> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * from Puestos");
+            ResultSet query = stmt.executeQuery("SELECT * from Clientes");
             while (query.next()) {
                 Cliente c = new Cliente();
                 c.setIdCliente(query.getInt("id_cliente"));
