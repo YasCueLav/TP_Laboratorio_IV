@@ -40,6 +40,10 @@
         <servlet-name>TotalAlquilerXPisoServlet</servlet-name>
         <servlet-class>Servlets.TotalAlquilerXPisoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListadoAlquileresServlet</servlet-name>
+        <servlet-class>Servlets.ListadoAlquileresServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>TotalAlquilerXPisoServlet</servlet-name>
         <url-pattern>/TotalAlquilerXPisoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoAlquileresServlet</servlet-name>
+        <url-pattern>/ListadoAlquileresServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
