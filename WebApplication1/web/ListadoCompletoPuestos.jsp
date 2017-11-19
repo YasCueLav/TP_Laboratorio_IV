@@ -16,7 +16,8 @@
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Listado Completo de Puestos</h1>
-        <table>
+        
+        <table border="1">
             <tr>
                 <th>Puesto</th>
                 <th>Piso</th>

@@ -15,5 +15,18 @@
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Total de alquileres por piso</h1>
+        
+        <table border="1">
+            <tr>
+                <th>Piso</th>
+                <th>Total Recaudado</th>
+            </tr>
+            <c:forEach items="${alquiler}" var="a">
+                <tr>
+                    <td>${a.getPsio}</td>
+                    <td>${a.getTotalRecaudado}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>
