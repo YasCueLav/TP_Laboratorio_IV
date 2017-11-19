@@ -20,7 +20,7 @@ public class VariablesSesion {
         usuarios.put("GabrielSoto", "2703");
         usuarios.put("MagaliPacheco", "1802");
         usuarios.put("YasminCueva", "0305");
-        usuarios.put("LeonelZambroni", "2001");
+        usuarios.put("LeonelZambroni", "2502");
     }
 
     public HashMap<String, String> getUsuarios() {
