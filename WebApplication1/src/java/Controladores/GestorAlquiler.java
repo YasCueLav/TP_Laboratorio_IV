@@ -3,12 +3,14 @@ package Controladores;
 import Model.Alquiler;
 import Model.Cliente;
 import Model.Puesto;
+import Model.VMAlquiler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -67,6 +69,10 @@ public class GestorAlquiler {
             inserto = false;
         }
         return inserto;
+    }
+
+    public ArrayList<VMAlquiler> obtenerAlquileresPorPiso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

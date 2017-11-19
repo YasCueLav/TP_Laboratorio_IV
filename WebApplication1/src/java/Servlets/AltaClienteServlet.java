@@ -6,9 +6,12 @@
 package Servlets;
 
 import Controladores.GestorCliente;
+import Controladores.Gestortipodocumento;
 import Model.Cliente;
+import Model.TipoDocumento;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,9 +51,12 @@ public class AltaClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Gestortipodocumento gt = new Gestortipodocumento();
+        ArrayList<TipoDocumento> documentos = gt.obtenerTodos();
         HttpSession mySession = request.getSession();
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
+            request.setAttribute("documentos", documentos);
             getServletContext().getRequestDispatcher("/AltaCliente.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);

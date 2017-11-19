@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Servlets/TotalAlquilerXPisoServlet.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Servlets/ListadoClientesServlet.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Model/VMAlquiler.java</file>
+        </group>
     </open-files>
 </project-private>
