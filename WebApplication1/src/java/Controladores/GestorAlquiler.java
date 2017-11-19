@@ -3,6 +3,8 @@ package Controladores;
 import Model.Alquiler;
 import Model.Cliente;
 import Model.Puesto;
+import Model.VMAlquiler;
+import Model.VMTotalAlquilerXPiso;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -112,6 +114,10 @@ public class GestorAlquiler {
             Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+    }
+
+    public ArrayList<VMTotalAlquilerXPiso> obtenerAlquileresXPiso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
