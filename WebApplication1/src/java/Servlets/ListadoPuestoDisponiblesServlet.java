@@ -48,7 +48,13 @@ public class ListadoPuestoDisponiblesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        GestorPuesto gc = new GestorPuesto();
+        ArrayList<Puesto> puesto = gc.obtenerPuestos();
+
+        request.setAttribute("puesto", puesto);
+        getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
         processRequest(request, response);
+
     }
 
     /**
@@ -62,11 +68,6 @@ public class ListadoPuestoDisponiblesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        GestorPuesto gc = new GestorPuesto();
-        ArrayList<Puesto> puesto = gc.obtenerPuestos();
-        
-        request.setAttribute("puesto", puesto);
-        getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
         processRequest(request, response);
     }
 
