@@ -15,6 +15,15 @@ public class VMAlquiler {
     int canEquipo;
     int sillasExtras;
     boolean salaReunion;
+    double total;
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     public String getNombre() {
         return nombre;
