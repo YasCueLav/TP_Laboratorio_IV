@@ -15,26 +15,19 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Listado Clientes (Todos e Individual)</h1>
+        <h1>Listado Clientes Individual</h1>
         
-        <div>
-            
-        </div>
-        <%--
-        <c:forEach items="${}" var="list">
-                <tr>
-                    
-                </tr>
-            </c:forEach>
-        --%>
-        
-        <form acion="ListadoClientesServlet">
-            
-        </form>
-    
-        <table>
-
-        </table>
-        
+        <c:forEach items="${cliente}" var="c">
+            <div>
+                <b>Cliente </b> nombre + Apellido
+                </br>
+                <b>Puestos </b>
+                <c:forEach items="${puesto}" var="p">
+                    nombre + piso for br x c/u
+                </c:forEach>
+                </br>
+                <b>Importe Total</b> importe
+            </div>
+        </c:forEach>
     </body>
 </html>
