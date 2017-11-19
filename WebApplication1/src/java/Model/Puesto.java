@@ -16,7 +16,7 @@ public class Puesto {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
-    }   
+    }  
     
 
     public int getPuesto() {

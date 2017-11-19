@@ -26,7 +26,7 @@ public class GestorPuesto {
     }
 
     public ArrayList<Puesto> obtenerPuestos() {
-        ArrayList<Puesto> lista = new ArrayList<Puesto>();
+        ArrayList<Puesto> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
             ResultSet query = stmt.executeQuery("SELECT * from Puestos");
@@ -53,11 +53,12 @@ public class GestorPuesto {
     public boolean agregarPuesto(Puesto p) {
         boolean inserto = true;
         try {
-            PreparedStatement stmt = conn.prepareStatement("exec pa_insert_puesto ?, ?, ?, ?, ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_insert_puesto ?, ?, ?, ?, ?");
             stmt.setInt(1, p.getPuesto());
             stmt.setInt(2, p.getPiso());
             stmt.setBoolean(3, p.isVentana());
             stmt.setInt(4, p.getCantSillas());
+            stmt.setBoolean(5, p.isDisponible());
             stmt.executeUpdate();
             stmt.close();
             conn.close();
@@ -73,7 +74,7 @@ public class GestorPuesto {
         Puesto p = new Puesto();
         try {
             
-            PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_un_puesto ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_un_puesto ?");
             stmt.setInt(1, idPuesto);
             ResultSet query = stmt.executeQuery();
             if(query.next()){
