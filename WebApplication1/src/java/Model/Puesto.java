@@ -71,5 +71,12 @@ public class Puesto {
         this.disponible = disponible;
     }
     
-    
+    public double getPrecioBace () {
+        double base = 2000;
+        if (piso > 3)
+            base += 1000;
+        if (ventana)
+            base += 500;
+        return base;
+    }
 }

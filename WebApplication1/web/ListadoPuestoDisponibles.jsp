@@ -35,7 +35,7 @@
                     <c:if test="${!puesto.isVentana}">
                         <td>No Tiene</td>
                     </c:if>
-                    <td>bbbbbbb</td>
+                    <td>$${puesto.getPrecioBace()}</td>
                 </tr>
             </c:forEach>
         </table>
