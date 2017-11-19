@@ -10,27 +10,27 @@ package Model;
  * @author Yasmin
  */
 public class TipoDocumento {
-    int idCliente;
+    int idTipoDocumento;
     String descripcion;
 
     public TipoDocumento() {
     }
 
     public TipoDocumento(int idCliente, String descripcion) {
-        this.idCliente = idCliente;
+        this.idTipoDocumento = idCliente;
         this.descripcion = descripcion;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getIdTipoDocumento() {
+        return idTipoDocumento;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setIdTipoDocumento(int idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
     public void setDescripcion(String descripcion) {
