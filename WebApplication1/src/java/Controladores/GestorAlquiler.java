@@ -36,6 +36,7 @@ public class GestorAlquiler {
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
             if (query.next()) {
+                a.setIdAlquiler(query.getInt("id_alquiler"));
                 a.setIdCliente(query.getInt("id_cliente"));
                 a.setIdPuesto(query.getInt("id_puesto"));
                 a.setCanEquipo(query.getInt("cant_equipos"));

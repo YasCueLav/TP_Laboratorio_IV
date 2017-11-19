@@ -39,7 +39,8 @@ create table Alquileres
 	id_puesto int,
 	cant_equipos int,
 	sillas_extras int,
-	sala_reunion bit
+	sala_reunion bit,
+        importe decimal (7,2)
 	constraint pk_alquiler primary key (id_alquiler),
 	constraint fk_cliente foreign  key (id_cliente) references Clientes(id_cliente),
 	constraint fk_puesto foreign  key (id_puesto) references Puestos(id_puesto)
