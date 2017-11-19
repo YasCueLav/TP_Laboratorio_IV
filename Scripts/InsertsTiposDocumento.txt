@@ -1,0 +1,6 @@
+--TIPOS DE DOCUMENTOS
+
+INSERT INTO Tipos_Documentos values ('DNI')
+INSERT INTO Tipos_Documentos values ('LC')
+INSERT INTO Tipos_Documentos values ('LE')
+INSERT INTO Tipos_Documentos values ('PAS')
