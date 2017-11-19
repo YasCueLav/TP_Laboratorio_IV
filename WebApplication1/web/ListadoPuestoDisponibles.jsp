@@ -18,24 +18,24 @@
         <h1>Listado de Puesto Disponibles</h1>
         <table>
             <tr>
-                <th>Id Puedto</th>
+                <th>getPuesto</th>
                 <th>Piso</th>
                 <th>Cantidad Sillas</th>
                 <th>Ventanas</th>
                 <th>Precio</th>
             </tr>
-            <c:forEach items="${puesto}" var="">
+            <c:forEach items="${puesto}" var="p">
                 <tr>
-                    <td>${puesto.getIdPuesto}</td>
-                    <td>${puesto.getPiso}</td>
-                    <td>${puesto.getCantSillas}</td>
-                    <c:if test="${puesto.isVentana}">
+                    <td>${p.getPuesto}</td>
+                    <td>${p.getPiso}</td>
+                    <td>${p.getCantSillas}</td>
+                    <c:if test="${p.isVentana}">
                         <td>Tiene</td>
                     </c:if>
-                    <c:if test="${!puesto.isVentana}">
+                    <c:if test="${!p.isVentana}">
                         <td>No Tiene</td>
                     </c:if>
-                    <td>$${puesto.getPrecioBace()}</td>
+                    <td>$${p.getPrecioBase()}</td>
                 </tr>
             </c:forEach>
         </table>

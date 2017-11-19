@@ -4,6 +4,7 @@
     Author     : Yasmin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,5 +16,25 @@
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Listado Clientes (Todos e Individual)</h1>
+        
+        <div>
+            
+        </div>
+        <%--
+        <c:forEach items="${}" var="list">
+                <tr>
+                    
+                </tr>
+            </c:forEach>
+        --%>
+        
+        <form acion="ListadoClientesServlet">
+            
+        </form>
+    
+        <table>
+
+        </table>
+        
     </body>
 </html>

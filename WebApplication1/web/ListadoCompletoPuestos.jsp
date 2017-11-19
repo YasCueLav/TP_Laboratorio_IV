@@ -18,29 +18,29 @@
         <h1>Listado Completo de Puestos</h1>
         <table>
             <tr>
-                <th>Id Puedto</th>
+                <th>Puesto</th>
                 <th>Piso</th>
                 <th>Cantidad Sillas</th>
                 <th>Ventanas</th>
                 <th>Precio</th>
                 <th>Disponible</th>
             </tr>
-            <c:forEach items="${puestos}" var="">
+            <c:forEach items="${puestos}" var="p">
                 <tr>
-                    <td>${puestos.getIdPuesto}</td>
-                    <td>${puestos.getPiso}</td>
-                    <td>${puestos.getCantSillas}</td>
-                    <c:if test="${puestos.isVentana}">
+                    <td>${p.getPuesto}</td>
+                    <td>${p.getPiso}</td>
+                    <td>${p.getCantSillas}</td>
+                    <c:if test="${p.isVentana}">
                         <td>Tiene</td>
                     </c:if>
-                    <c:if test="${!puestos.isVentana}">
+                    <c:if test="${!p.isVentana}">
                         <td>No Tiene</td>
                     </c:if>
-                    <td>$${puestos.getPrecioBace()}</td>
-                    <c:if test="${puestos.isDisponible}">
+                    <td>$${p.getPrecioBace()}</td>
+                    <c:if test="${p.isDisponible}">
                         <td>Disponible</td>
                     </c:if>
-                    <c:if test="${!puestos.isDisponible}">
+                    <c:if test="${!p.isDisponible}">
                         <td>No Disponible</td>
                     </c:if>
                 </tr>

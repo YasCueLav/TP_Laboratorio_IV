@@ -4,11 +4,16 @@ package Model;
 public class Puesto {
 
     int idPuesto;
-    int puesto;
+    int puesto;//nombre en la DB
     int piso;
     boolean ventana;
     int cantSillas;
     boolean disponible;
+    double precioBase;
+
+    public double getPrecioBase() {
+        return precioBase;
+    }
 
     public boolean isDisponible() {
         return disponible;
@@ -48,10 +53,14 @@ public class Puesto {
     }
 
     public void setPiso(int piso) {
+        if (piso > 3)
+            precioBase += 1000;
         this.piso = piso;
     }
 
     public void setVentana(boolean ventana) {
+        if (ventana)
+            precioBase += 500;
         this.ventana = ventana;
     }
 
@@ -69,14 +78,5 @@ public class Puesto {
         this.ventana = ventana;
         this.cantSillas = cantSillas;
         this.disponible = disponible;
-    }
-    
-    public double getPrecioBace () {
-        double base = 2000;
-        if (piso > 3)
-            base += 1000;
-        if (ventana)
-            base += 500;
-        return base;
     }
 }
