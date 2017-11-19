@@ -36,7 +36,7 @@ public class GestorCliente {
         
         Cliente c = new Cliente();
         try {
-            PreparedStatement stmt = conn.prepareStatement("exec pa_obtener_cliente ?");
+            PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_cliente ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
             if(query.next()){            
