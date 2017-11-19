@@ -64,15 +64,9 @@ public class ListadoPuestoDisponiblesServlet extends HttpServlet {
             throws ServletException, IOException {
         GestorPuesto gc = new GestorPuesto();
         ArrayList<Puesto> puesto = gc.obtenerPuestos();
-
-        HttpSession mySession = request.getSession();
-        boolean isLogged = (boolean) mySession.getAttribute("inicio");
-        if (isLogged) {
-            request.setAttribute("puesto", puesto);
-            getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
-        } else {
-            getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
-        }
+        
+        request.setAttribute("puesto", puesto);
+        getServletContext().getRequestDispatcher("/ListadoClientes.jsp").forward(request, response);
         processRequest(request, response);
     }
 
