@@ -1,0 +1,12 @@
+GO
+--UPDATE ALQUILERES
+CREATE PROC pa_update_alquiler
+@idAlquiler int,
+@cantEquipos int,
+@sillasExtra int,
+@salaReunion bit,
+@importe decimal(7,2)
+AS 
+BEGIN
+UPDATE Alquileres set cant_equipos = @cantEquipos, sillas_extras = @sillasExtra, sala_reunion = @salaReunion, importe = @importe where id_alquiler = @idAlquiler
+END

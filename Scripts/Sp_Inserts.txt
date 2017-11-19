@@ -1,0 +1,43 @@
+---------------------------------------------
+--INSERTS
+---------------------------------------------
+
+GO
+--INSERTAR NUEVO PUESTO
+CREATE PROC pa_insert_puesto
+@nombre int,
+@piso int,
+@ventana bit,
+@cantSillas int,
+@disponible bit
+as
+begin
+insert into Puestos values (@nombre, @piso, @ventana, @cantSillas, @disponible)
+end
+--------------------------------------------------
+GO
+--INSERTAR NUEVO CLIENTE
+CREATE PROC pa_insert_cliente
+@nombre varchar(50),
+@apellido varchar(50),
+@documento int,
+@tipoDocumento int,
+@telefono bigint
+as
+begin
+insert into Clientes values (@nombre, @apellido, @documento, @tipoDocumento, @telefono)
+end
+--------------------------------------------------
+GO
+--INSERT NUEVO ALQUILER
+CREATE PROC pa_insert_alquiler
+@idCliente int,
+@idPuesto int,
+@cantEquipos int,
+@sillasExtras int,
+@salaReunion bit,
+@importe decimal(7,2)
+AS
+BEGIN
+INSERT INTO Alquileres values(@idCliente, @idPuesto, @cantEquipos, @sillasExtras, @salaReunion, @importe)
+END
