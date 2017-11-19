@@ -104,6 +104,18 @@ public class GestorCliente {
     }
 
     public ArrayList<VMLlstadoCliente> obtenerListadoCliente() {
+        ArrayList<VMLlstadoCliente> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * from vw_lista_clientes_general");
+                while (query.next()) {
+                VMLlstadoCliente l = new VMLlstadoCliente();
+                l.setNombreCliente(query.getString(1));
+                lista.add(l);
+            }
+     
+        } catch (Exception e) {
+        }
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
