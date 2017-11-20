@@ -24,7 +24,7 @@
             <label>Documento</label> 
             <select name="tipoDocumento" class="form-control">
                 <c:forEach items="${documentos}" var="tpV">
-                    <option value="${tpV.getIdCliente()}">${tpV.getDescripcion()}</option>
+                    <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
                 </c:forEach>
             </select>
             
@@ -32,7 +32,7 @@
             
             <input type="number" name="Documento" value="0"  min="0"/>
             <br/><%-- tipo --%>
-            <label>Telefono</label> <input type="checkbox" name="ventana" value="false"/>
+            <label>Telefono</label> <input type="text" name="telefono" value="0"  min="0"/>
             <br/>
             <input type="subit" value="Cargar" class="btn btn-primary" />
         </from>     

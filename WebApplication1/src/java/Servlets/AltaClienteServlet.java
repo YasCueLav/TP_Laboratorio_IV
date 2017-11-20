@@ -56,7 +56,7 @@ public class AltaClienteServlet extends HttpServlet {
         if (isLogged) {
             Gestortipodocumento gc = new Gestortipodocumento();
             ArrayList<TipoDocumento> documentos = gc.obtenerTiposDocumento();
-            request.setAttribute("clientes", documentos);
+            request.setAttribute("documentos", documentos);
             getServletContext().getRequestDispatcher("/AltaCliente.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
@@ -77,11 +77,11 @@ public class AltaClienteServlet extends HttpServlet {
             throws ServletException, IOException {
 
         Cliente c = new Cliente();
-        c.setNombre(request.getParameter("Nombre"));
-        c.setApellido(request.getParameter("Apellido"));
-        c.setIdTipoDocumento(Integer.parseInt(request.getParameter("TipoDeDocumento")));
+        c.setNombre(request.getParameter("nombreCliente"));
+        c.setApellido(request.getParameter("apellidoCliente"));
+        c.setIdTipoDocumento(Integer.parseInt(request.getParameter("tipoDocumento")));
         c.setDocumento(Integer.parseInt(request.getParameter("Documento")));
-        c.setTelefono(Long.parseLong(request.getParameter("Telefono")));
+        c.setTelefono(Long.parseLong(request.getParameter("telefono")));
 
         GestorCliente gc = new GestorCliente();
         if (gc.agregarCliente(c)) {
