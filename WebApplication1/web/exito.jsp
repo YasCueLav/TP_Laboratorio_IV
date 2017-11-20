@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Exito</title>
+        <title>Éxito</title>
         <jsp:include page="links.jsp"></jsp:include>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Se ha realizado la accion con exito</h1>
+        <h1>Se ha realizado la acción con éxito</h1>
     </body>
 </html>
