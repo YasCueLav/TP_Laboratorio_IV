@@ -49,9 +49,9 @@ public class ListadoPuestoDisponiblesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         GestorPuesto gc = new GestorPuesto();
-        ArrayList<Puesto> puesto = gc.obtenerPuestos();
+        ArrayList<Puesto> puestos = gc.obtenerPuestosDisponibles();
 
-        request.setAttribute("puesto", puesto);
+        request.setAttribute("puestos", puestos);
         getServletContext().getRequestDispatcher("/ListadoPuestoDisponibles.jsp").forward(request, response);
         processRequest(request, response);
 

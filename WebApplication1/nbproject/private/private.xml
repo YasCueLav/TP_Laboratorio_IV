@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/AltaPuesto.jsp</url>
+            <bookmark id="1">
+                <name/>
+                <line>28</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/web/ListadoClientes.jsp</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Model/Alquiler.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Servlets/ListadoAlquileresServlet.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Servlets/ModificarAlquilerServlet.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/web/ModificarAlquiler.jsp</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/web/ListadoAlquileres.jsp</file>
+            <file>file:/C:/Users/Gabriel/Documents/GitHub/TP_Laboratorio_IV/WebApplication1/src/java/Controladores/GestorAlquiler.java</file>
+        </group>
     </open-files>
 </project-private>

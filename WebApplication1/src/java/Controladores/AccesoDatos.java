@@ -12,10 +12,10 @@ public class AccesoDatos {
 
     public AccesoDatos() {
         
-        conn_string = "jdbc:sqlserver://localhost:1433;databaseName=TP_Lab_IV";
+        conn_string = "jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV";
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        user = "sa";
-        pass = "Server1552";
+        user = "gabriel";
+        pass = "G.E.S.C.";
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {

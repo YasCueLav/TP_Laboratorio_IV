@@ -92,6 +92,10 @@ public class AltaAlquilerServlet extends HttpServlet {
         } else {
             a.setSalaReunion(false);
         }
+        GestorPuesto gp = new GestorPuesto();
+        Puesto p = gp.obtenerPuesto(a.getIdPuesto());
+        p.calcularPrecioBase();
+        a.calcularImporte(p.getPrecioBase());
         boolean cargo = ga.agregarAlquiler(a);
         if (cargo) {
             getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);

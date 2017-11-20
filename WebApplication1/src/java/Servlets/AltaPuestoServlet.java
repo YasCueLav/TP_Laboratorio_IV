@@ -85,6 +85,7 @@ public class AltaPuestoServlet extends HttpServlet {
         p.setPuesto(Numero);
         p.setCantSillas(CantidadSillas);
         p.setVentana(tieneVentana);
+        p.calcularPrecioBase();
         if (gp.agregarPuesto(p)) {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,10 +22,10 @@
                 <th>Piso</th>
                 <th>Total Recaudado</th>
             </tr>
-            <c:forEach items="${alquiler}" var="a">
+            <c:forEach items="${alquileres}" var="a">
                 <tr>
-                    <td>${a.getPsio}</td>
-                    <td>${a.getTotalRecaudado}</td>
+                    <td>${a.getNroPiso()}</td>
+                    <td>${a.getMonto()}</td>
                 </tr>
             </c:forEach>
         </table>

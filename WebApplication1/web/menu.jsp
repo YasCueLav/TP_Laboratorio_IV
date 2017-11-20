@@ -17,6 +17,7 @@
         <li><a href="/WebApplication1/ListadoClientesServlet">Listado de Clientes</a></li>
         <li><a href="/WebApplication1/ListadoClientesPuestosServlet">Listado de Clientes Filtor</a></li>
         <li><a href="/WebApplication1/ListadoCompletoPuestosServlet">Listado Completo de Puestos</a></li>
+        <li><a href="/WebApplication1/ListadoPuestoDisponiblesServlet">Listado de Puestos Disponibles</a></li>
         <li><a href="/WebApplication1/TotalAlquilerXPisoServlet">Total de alquiler por Piso</a></li>
         <c:if test="${inicio}">
             <li><a href="/WebApplication1/RevicionInicio.jsp" onclick="alert('Desconectado');">Cerrar Sesion</a></li>

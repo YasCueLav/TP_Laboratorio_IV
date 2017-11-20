@@ -120,4 +120,29 @@ public class GestorPuesto {
         return lista;
     }
 
+    public ArrayList<Puesto> obtenerPuestosDisponibles() {
+            ArrayList<Puesto> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * from Puestos where disponible = 0");
+            while (query.next()) {
+                Puesto p = new Puesto();
+                p.setIdPuesto(query.getInt("id_puesto"));
+                p.setPuesto(query.getInt("nombre"));
+                p.setPiso(query.getInt("piso"));
+                p.setVentana(query.getBoolean("ventana"));
+                p.setCantSillas(query.getInt("cant_sillas"));
+                p.setDisponible(query.getBoolean("disponible"));                
+                lista.add(p);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorPuesto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+
 }

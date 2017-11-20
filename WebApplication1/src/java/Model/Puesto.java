@@ -53,14 +53,10 @@ public class Puesto {
     }
 
     public void setPiso(int piso) {
-        if (piso > 3)
-            precioBase += 1000;
         this.piso = piso;
     }
 
     public void setVentana(boolean ventana) {
-        if (ventana)
-            precioBase += 500;
         this.ventana = ventana;
     }
 
@@ -78,5 +74,15 @@ public class Puesto {
         this.ventana = ventana;
         this.cantSillas = cantSillas;
         this.disponible = disponible;
+    }
+    
+    public void calcularPrecioBase(){
+        precioBase = 2000;
+        if (piso > 3){
+            precioBase += 1000;
+        }
+        if (ventana){
+            precioBase += 500;
+        }
     }
 }

@@ -28,20 +28,20 @@
             </tr>
             <c:forEach items="${puestos}" var="p">
                 <tr>
-                    <td>${p.getPuesto}</td>
-                    <td>${p.getPiso}</td>
-                    <td>${p.getCantSillas}</td>
-                    <c:if test="${p.isVentana}">
+                    <td>${p.getPuesto()}</td>
+                    <td>${p.getPiso()}</td>
+                    <td>${p.getCantSillas()}</td>
+                    <c:if test="${p.isVentana()}">
                         <td>Tiene</td>
                     </c:if>
-                    <c:if test="${!p.isVentana}">
+                    <c:if test="${!p.isVentana()}">
                         <td>No Tiene</td>
                     </c:if>
-                    <td>$${p.getPrecioBace()}</td>
-                    <c:if test="${p.isDisponible}">
+                    <td>$${p.getPrecioBase()}</td>
+                    <c:if test="${p.isDisponible()}">
                         <td>Disponible</td>
                     </c:if>
-                    <c:if test="${!p.isDisponible}">
+                    <c:if test="${!p.isDisponible()}">
                         <td>No Disponible</td>
                     </c:if>
                 </tr>

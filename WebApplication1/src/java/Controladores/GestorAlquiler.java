@@ -129,11 +129,11 @@ public class GestorAlquiler {
         ArrayList<VMTotalAlquilerXPiso> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * FROM vw_obtener_alquileres_por_piso");
+            ResultSet query = stmt.executeQuery("select p.piso, sum(a.importe) total from Alquileres a join Puestos p on a.id_puesto = p.id_puesto group by p.piso");
             while (query.next()) {
                 VMTotalAlquilerXPiso vt = new VMTotalAlquilerXPiso();
                 vt.setNroPiso(query.getInt("piso"));
-                vt.setMonto(query.getDouble("Importe Total"));
+                vt.setMonto(query.getDouble("total"));
                 lista.add(vt);
             }
             query.close();

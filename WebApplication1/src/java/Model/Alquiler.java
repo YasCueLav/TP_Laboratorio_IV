@@ -87,6 +87,13 @@ public class Alquiler {
         this.importe = importe;
     }
     
-    
+    public void calcularImporte(double precioBase){
+        importe = precioBase;
+        importe += (canEquipo * 800); // sumando computadoras
+        importe += (sillasExtras * 100); // sumando sillas extras
+        if (salaReunion){
+            importe += 1000;
+        }
+    }
     
 }
