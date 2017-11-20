@@ -8,7 +8,7 @@ package Controladores;
 import Model.Alquiler;
 import Model.Cliente;
 import Model.Puesto;
-import Model.VMLlstadoCliente;
+import Model.VMListadoCliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,7 +18,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class GestorCliente {
 
@@ -34,20 +33,20 @@ public class GestorCliente {
     }
 
     public Cliente obtenerCliente(int id) {
-        
+
         Cliente c = new Cliente();
         try {
             PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_cliente ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
-            if(query.next()){            
+            if (query.next()) {
                 c.setApellido(query.getString("apellido"));
                 c.setNombre(query.getString("nombre"));
                 c.setIdTipoDocumento(query.getInt("id_tipo_documento"));
                 c.setDocumento(query.getInt("documento"));
                 c.setIdCliente(query.getInt("id_cliente"));
-                c.setTelefono(query.getInt("telefono"));                      
-                
+                c.setTelefono(query.getInt("telefono"));
+
             }
             query.close();
             stmt.close();
@@ -77,6 +76,7 @@ public class GestorCliente {
         }
         return inserto;
     }
+
     public ArrayList<Cliente> obtenerClientes() {
         ArrayList<Cliente> lista = new ArrayList<>();
         try {
@@ -90,7 +90,7 @@ public class GestorCliente {
                 c.setDocumento(query.getInt("documento"));
                 c.setIdTipoDocumento(query.getInt("id_tipo_documento"));
                 c.setTelefono(query.getLong("telefono"));
-                
+
                 lista.add(c);
             }
             query.close();
@@ -103,20 +103,46 @@ public class GestorCliente {
         return lista;
     }
 
-    public ArrayList<VMLlstadoCliente> obtenerListadoCliente() {
-        ArrayList<VMLlstadoCliente> lista = new ArrayList<>();
+    public ArrayList<VMListadoCliente> obtenerListadoCliente() {
+        ArrayList<VMListadoCliente> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
             ResultSet query = stmt.executeQuery("SELECT * from vw_lista_clientes_general");
-                while (query.next()) {
-                VMLlstadoCliente l = new VMLlstadoCliente();
+            while (query.next()) {
+                VMListadoCliente l = new VMListadoCliente();
                 l.setNombreCliente(query.getString(1));
                 lista.add(l);
             }
-     
+
         } catch (Exception e) {
         }
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ArrayList<VMListadoCliente> obtenerClientesListado() {
+        ArrayList<VMListadoCliente> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("select c.id_cliente, c.nombre, c.apellido, c.telefono, count(*) 'cantidad', sum(a.importe) 'importe' from Clientes c join Alquileres a on a.id_cliente = c.id_cliente group by c.id_cliente, c.nombre, c.apellido, c.telefono");
+            while (query.next()) {
+                VMListadoCliente c = new VMListadoCliente();
+                c.setIdCliente(query.getInt("id_cliente"));
+                c.setNombreCliente(query.getString("nombre"));
+                c.setApellidoCliente(query.getString("apellido"));
+                c.setTelefono(query.getLong("telefono"));
+                c.setCantidadPuesto(query.getInt("cantidad"));
+                c.setImporte(query.getDouble("importe"));
+
+                lista.add(c);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
 }

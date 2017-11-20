@@ -25,10 +25,6 @@
         <servlet-class>Servlets.ModificarAlquilerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListadoClientesServlet</servlet-name>
-        <servlet-class>Servlets.ListadoClientesServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ListadoCompletoPuestosServlet</servlet-name>
         <servlet-class>Servlets.ListadoCompletoPuestosServlet</servlet-class>
     </servlet>
@@ -46,7 +42,11 @@
     </servlet>
     <servlet>
         <servlet-name>ListadoClientePuestoServlet</servlet-name>
-        <servlet-class>Servlets.ListadoClientePuestoServlet</servlet-class>
+        <servlet-class>Servlets.DetalleClientesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListadoClientesServlet</servlet-name>
+        <servlet-class>Servlets.ListadoClientesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
@@ -73,10 +73,6 @@
         <url-pattern>/AltaAlquilerServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListadoClientesServlet</servlet-name>
-        <url-pattern>/ListadoClientesServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ListadoCompletoPuestosServlet</servlet-name>
         <url-pattern>/ListadoCompletoPuestosServlet</url-pattern>
     </servlet-mapping>
@@ -95,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ListadoClientePuestoServlet</servlet-name>
         <url-pattern>/ListadoClientePuestoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListadoClientesServlet</servlet-name>
+        <url-pattern>/ListadoClientesServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

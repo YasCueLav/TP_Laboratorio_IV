@@ -15,20 +15,10 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Listado Clientes Filtro</h1>
+        <h1>Detalle Cliente</h1>   
         
-        <form action="ListadoClientePuestoServlet">
-            <label>Cliente DNI</label> <input type="text" name="filtroDNI" />
-            <input type="submit" value="Filtrar" />
-        </form>
         
-        <div>
-            <b>Cliente: </b> <label> nombre + Apellido</label>
-            </br>
-            <b>Documento: </b> <label> TipoDNU + DNI</label>
-            </br>
-            <b>Telefono </b> <label> tel</label>
-        </div>
+        
         
         <table border="1">
             <tr>
@@ -36,28 +26,20 @@
                 <th>Piso</th>
                 <th>Cantidad Sillas</th>
                 <th>Ventana</th>
-                <th>Cantidad Equipos</th>
-                <th>Sillas Extras</th>
-                <th>Sala Reunion</th>
+                <th>Precio Base</th>
             </tr>
-            <c:forEach items="${puesto}" var="p">
+            <c:forEach items="${puestos}" var="p">
                 <tr>
-                    <td>${p.getNombre}</td>
-                    <td>${p.getPiso}</td>
-                    <td>${p.getCantSillas}</td>
-                    <c:if test="${p.isVentana}">
+                    <td>${p.getPuesto()}</td>
+                    <td>${p.getPiso()}</td>
+                    <td>${p.getCantSillas()}</td>
+                    <c:if test="${p.isVentana()}">
                         <td>Tiene</td>
                     </c:if>
-                    <c:if test="${!p.isVentana}">
+                    <c:if test="${!p.isVentana()}">
                         <td>No Tiene</td>
                     </c:if>
-                    <td>${p.getCanEquipo}</td>
-                    <td>${p.getSillasExtras}</td>
-                    <c:if test="${p.getSalaReunion}">
-                        <td>Tiene</td>
-                    </c:if>
-                    <c:if test="${!p.getSalaReunion}">
-                        <td>No Tiene</td>
+                    <td>$${p.getPrecioBase()}</td>                    
                 </tr>
             </c:forEach>
         </table>
