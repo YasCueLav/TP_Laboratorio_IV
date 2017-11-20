@@ -17,26 +17,25 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Registro Cliente</h1>
         
-        <from action="AltaClienteServlet" method="POST">
-            <label>Nombre</label><input type="text" name="nombreCliente" value="1" min="1" max="5"/>
+        <form action="AltaClienteServlet" method="POST">
+            <label>Nombre</label><input type="text" name="nombreCliente"/>
             <br/>
-            <label>Apellido</label> <input type="text" name="apellidoCliente" value="1"  min="1"/>
+            <label>Apellido</label> <input type="text" name="apellidoCliente"/>
             <br/>
             <label>Tipo Documento</label> 
             <select name="tiposDocumento" class="form-control">
                 <c:forEach items="${tiposDocumento}" var="tpV">
                     <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
                 </c:forEach>
-            </select>
-            
+            </select>           
             
             <br/>
             <label>Documento</label>
-            <input type="number" name="documento" value="0"  min="0"/>
+            <input type="number" name="documento"/>
             <br/><%-- tipo --%>
-            <label>Teléfono</label> <input type="text" name="telefono" value="0"  min="0"/>
+            <label>Teléfono</label> <input type="text" name="telefono"/>
             <br/>
             <input type="submit" value="Cargar" class="btn btn-primary" />
-        </from>     
+        </form>     
     </body>
 </html>
