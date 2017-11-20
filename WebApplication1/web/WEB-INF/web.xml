@@ -48,6 +48,10 @@
         <servlet-name>ListadoClientesServlet</servlet-name>
         <servlet-class>Servlets.ListadoClientesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetalleClientesServlet</servlet-name>
+        <servlet-class>Servlets.DetalleClientesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>ListadoClientesServlet</servlet-name>
         <url-pattern>/ListadoClientesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalleClientesServlet</servlet-name>
+        <url-pattern>/DetalleClientesServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
