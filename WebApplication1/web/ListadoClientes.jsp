@@ -20,14 +20,18 @@
         <table border="1">
             <tr>
                 <th>Cliente</th>
-                <th>Cantidad de Puestos</th>
-                <th>Importe Total</th>
+                <th>Teléfono</th>
+                <th>Cantidad de Puestos</th>                
+                <th>Importe</th>
+                <th></th>
             </tr>
-            <c:forEach items="${cliente}" var="c">
+            <c:forEach items="${clientes}" var="c">
                 <tr>
-                    <td>${c.getNombre}</td>
-                    <td>${c.getCanidadPiso}</td>
-                    <td>${c.getTotal}</td>
+                    <td>${c.getApellidoCliente()}, ${c.getNombreCliente()}</td>
+                    <td>${c.getTelefono()}</td>
+                    <td>${c.getCantidadPuesto()}</td>
+                    <td>${c.getImporte()}</td>
+                    <td><a href="/WebApplication1/DetalleClientesServlet?idCliente=${c.getIdCliente()}">Ver Detalle</a></td>
                 </tr>
             </c:forEach>
         </table>
