@@ -14,6 +14,6 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>No se ha podido realizar la accion</h1>        
+        <h1>No se ha podido realizar la acción</h1>        
     </body>
 </html>

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,10 +15,11 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Listado Cliente filto</h1>
+        <h1>Listado Clientes Filtro</h1>
         
-        <form acion="ListadoClientesPuestosServlet">
+        <form action="ListadoClientePuestoServlet">
             <label>Cliente DNI</label> <input type="text" name="filtroDNI" />
+            <input type="submit" value="Filtrar" />
         </form>
         
         <div>
