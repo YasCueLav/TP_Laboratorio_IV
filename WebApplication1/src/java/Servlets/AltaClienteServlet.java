@@ -55,8 +55,8 @@ public class AltaClienteServlet extends HttpServlet {
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
             Gestortipodocumento gc = new Gestortipodocumento();
-            ArrayList<TipoDocumento> documentos = gc.obtenerTiposDocumento();
-            request.setAttribute("documentos", documentos);
+            ArrayList<TipoDocumento> tiposDocumento = gc.obtenerTiposDocumento();
+            request.setAttribute("tiposDocumento", tiposDocumento);
             getServletContext().getRequestDispatcher("/AltaCliente.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
@@ -75,12 +75,12 @@ public class AltaClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
         Cliente c = new Cliente();
         c.setNombre(request.getParameter("nombreCliente"));
         c.setApellido(request.getParameter("apellidoCliente"));
-        c.setIdTipoDocumento(Integer.parseInt(request.getParameter("tipoDocumento")));
-        c.setDocumento(Integer.parseInt(request.getParameter("Documento")));
+        c.setDocumento(Integer.parseInt(request.getParameter("documento")));
+        c.setIdTipoDocumento(Integer.parseInt(request.getParameter("tiposDocumento")));
         c.setTelefono(Long.parseLong(request.getParameter("telefono")));
 
         GestorCliente gc = new GestorCliente();
@@ -92,7 +92,7 @@ public class AltaClienteServlet extends HttpServlet {
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
         }
-        processRequest(request, response);
+
     }
 
     /**

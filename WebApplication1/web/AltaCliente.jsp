@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,16 +22,16 @@
             <br/>
             <label>Apellido</label> <input type="text" name="apellidoCliente" value="1"  min="1"/>
             <br/>
-            <label>Documento</label> 
-            <select name="tipoDocumento" class="form-control">
-                <c:forEach items="${documentos}" var="tpV">
+            <label>Tipo Documento</label> 
+            <select name="tiposDocumento" class="form-control">
+                <c:forEach items="${tiposDocumento}" var="tpV">
                     <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
                 </c:forEach>
             </select>
             
             
             
-            <input type="number" name="Documento" value="0"  min="0"/>
+            <input type="number" name="documento" value="0"  min="0"/>
             <br/><%-- tipo --%>
             <label>Telefono</label> <input type="text" name="telefono" value="0"  min="0"/>
             <br/>
