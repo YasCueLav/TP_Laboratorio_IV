@@ -24,7 +24,7 @@ public class GestorAlquiler {
         try {
             conn = DriverManager.getConnection(ad.getConn_string(), ad.getUser(), ad.getPass());
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
     }
 
@@ -49,7 +49,7 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         return a;
     }
@@ -70,7 +70,7 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
             inserto = false;
         }
         return inserto;
@@ -89,7 +89,7 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
             modifico = false;
         }
         return modifico;
@@ -115,7 +115,7 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         return lista;
     }
@@ -135,7 +135,7 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         return lista;
     }

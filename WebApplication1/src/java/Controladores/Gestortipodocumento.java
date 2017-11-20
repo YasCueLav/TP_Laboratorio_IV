@@ -35,19 +35,20 @@ public class Gestortipodocumento {
      public ArrayList<TipoDocumento> obtenerTiposDocumento() {
         ArrayList<TipoDocumento> lista = new ArrayList<>();
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * from Tipos_Documentos");
-            while (query.next()) {
-                TipoDocumento t = new TipoDocumento();
-                t.setIdTipoDocumento(query.getInt("id_Tipo"));
-                t.setDescripcion(query.getString("descripcion"));
-                
-                
-                lista.add(t);
+            try (Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV","gabriel","G.E.S.C.")) {
+                Statement stmt = conn.createStatement();
+                ResultSet query = stmt.executeQuery("SELECT * from Tipos_Documentos");
+                while (query.next()) {
+                    TipoDocumento t = new TipoDocumento();
+                    t.setIdTipoDocumento(query.getInt("id_Tipo"));
+                    t.setDescripcion(query.getString("descripcion"));
+                    
+                    
+                    lista.add(t);
+                }
+                query.close();
+                stmt.close();
             }
-            query.close();
-            stmt.close();
-            conn.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(Gestortipodocumento.class.getName()).log(Level.SEVERE, null, ex);
