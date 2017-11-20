@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,18 +27,18 @@
         <label>Puesto</label>
         <select name="Puesto" class="form-control">
                 <c:forEach items="${puestos}" var="p">
-                <option value="${p.getIdPuesto()}">${cl.getPuesto()}</option>
+                <option value="${p.getIdPuesto()}">${p.getPuesto()}</option>
             </c:forEach>
         </select>
         <br/>
         Piso:<input type="number" name="pisoPuesto" value="1" min="1" max="5"/>
         Numero:<input type="number" name="numeroPuesto" value="1"  min="1"/>
         <br/>
-        <label>Cantidad equipos</label> <input  type="number" name="canEquipo" value="0"  min="0"/>
+        <label>Cantidad equipos</label> <input  type="number" name="CantidadEquipo" value="0"  min="0"/>
         <br/>
-        <label>Sillas extras</label> <input type="number" name="sillasExtra" value="0"  min="0"/>
+        <label>Sillas extras</label> <input type="number" name="CantidadSilla" value="0"  min="0"/>
         <br/>
-        <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion" value="false"/>
+        <label>Sala de Reuniones</label> <input type="checkbox" name="SalaDeReunion" value="false"/>
         <br/>
         <input type="submit" value="Cargar" class="btn btn-primary" />
     </from>        

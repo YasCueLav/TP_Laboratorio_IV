@@ -5,6 +5,7 @@ import Model.Cliente;
 import Model.Puesto;
 import Model.VMAlquiler;
 import Model.VMTotalAlquilerXPiso;
+import static java.lang.Class.forName;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,6 +33,8 @@ public class GestorAlquiler {
 
         Alquiler a = new Alquiler();
         try {
+            forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV","gabriel","G.E.S.C.");
             PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_un_alquiler ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
@@ -49,6 +52,8 @@ public class GestorAlquiler {
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (ClassNotFoundException ex) {
             System.out.println(ex);
         }
         return a;

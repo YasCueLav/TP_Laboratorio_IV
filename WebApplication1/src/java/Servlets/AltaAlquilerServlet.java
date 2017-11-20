@@ -92,8 +92,8 @@ public class AltaAlquilerServlet extends HttpServlet {
         } else {
             a.setSalaReunion(false);
         }
-
-        if (ga.agregarAlquiler(a)) {
+        boolean cargo = ga.agregarAlquiler(a);
+        if (cargo) {
             getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
