@@ -34,7 +34,7 @@
             <br/><%-- tipo --%>
             <label>Telefono</label> <input type="text" name="telefono" value="0"  min="0"/>
             <br/>
-            <input type="subit" value="Cargar" class="btn btn-primary" />
+            <input type="submit" value="Cargar" class="btn btn-primary" />
         </from>     
     </body>
 </html>
