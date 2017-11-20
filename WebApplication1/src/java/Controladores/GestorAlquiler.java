@@ -120,8 +120,24 @@ public class GestorAlquiler {
         return lista;
     }
 
-    public ArrayList<VMTotalAlquilerXPiso> obtenerAlquileresXPiso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<VMTotalAlquilerXPiso> obtenerAlquileresXPiso() {        
+        ArrayList<VMTotalAlquilerXPiso> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * FROM vw_obtener_alquileres_por_piso");
+            while(query.next()){
+                VMTotalAlquilerXPiso vt = new VMTotalAlquilerXPiso();
+                vt.setNroPiso(query.getInt("piso"));
+                vt.setMonto(query.getDouble("Importe Total"));
+                lista.add(vt);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorAlquiler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
 }
