@@ -88,7 +88,7 @@ public class AltaClienteServlet extends HttpServlet {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
 
-            getServletContext().getRequestDispatcher("/Exito.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
         }
