@@ -87,7 +87,7 @@ public class AltaAlquilerServlet extends HttpServlet {
         a.setCanEquipo(Integer.parseInt(request.getParameter("CantidadEquipo")));
         a.setSillasExtras(Integer.parseInt(request.getParameter("CantidadSilla")));
         String salaReuniones = request.getParameter("SalaDeReunion");
-        if ("on".equals(salaReuniones)) {
+        if (salaReuniones != null) {
             a.setSalaReunion(true);
         } else {
             a.setSalaReunion(false);
