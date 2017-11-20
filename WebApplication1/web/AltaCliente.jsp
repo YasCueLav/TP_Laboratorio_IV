@@ -30,10 +30,11 @@
             </select>
             
             
-            
+            <br/>
+            <label>Documento</label>
             <input type="number" name="documento" value="0"  min="0"/>
             <br/><%-- tipo --%>
-            <label>Telefono</label> <input type="text" name="telefono" value="0"  min="0"/>
+            <label>Teléfono</label> <input type="text" name="telefono" value="0"  min="0"/>
             <br/>
             <input type="submit" value="Cargar" class="btn btn-primary" />
         </from>     
