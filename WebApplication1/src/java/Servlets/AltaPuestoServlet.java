@@ -74,7 +74,7 @@ public class AltaPuestoServlet extends HttpServlet {
         int CantidadSillas = Integer.parseInt(request.getParameter("sillasExtra"));
         String ventana = request.getParameter("ventana");
         boolean tieneVentana;
-        if ("on".equals(ventana)) {
+        if (ventana != null) {
             tieneVentana = true;
         } else {
             tieneVentana = false;
@@ -89,7 +89,7 @@ public class AltaPuestoServlet extends HttpServlet {
             HttpSession mySession = request.getSession();
             mySession.setAttribute("inicio", true);
             
-            getServletContext().getRequestDispatcher("/Exito.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
             processRequest(request, response);

@@ -10,6 +10,15 @@ package Model;
  * @author Gabriel
  */
 public class VMAlquiler {
+    int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     String nombre;
     int puesto;
     int canEquipo;

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,7 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Registro Puesto</h1>
         
-        <from action="AltaPuestoServlet" method="POST">
+        <form action="AltaPuestoServlet" method="POST">
             <label>Piso</label><input type="number" name="pisoPuesto" value="1" min="1" max="5"/>
             <br/>
             <label>Numero</label> <input type="number" name="numeroPuesto" value="1"  min="1"/>
@@ -25,7 +26,7 @@
             <br/>
             <label>ventana</label> <input type="checkbox" name="ventana" value="false"/>
             <br/>
-            <input type="subit" value="Cargar" class="btn btn-primary" />
-        </from>     
+            <input type="submit" value="Cargar" class="btn btn-primary" />
+        </form>     
     </body>
 </html>

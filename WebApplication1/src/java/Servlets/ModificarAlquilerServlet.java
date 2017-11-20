@@ -60,10 +60,10 @@ public class ModificarAlquilerServlet extends HttpServlet {
         ArrayList<Cliente> clientes = gc.obtenerClientes();
         GestorPuesto gp = new GestorPuesto();
         ArrayList<Puesto> puestos = gp.obtenerPuestos();
+        
         request.setAttribute("alquiler", a);
         request.setAttribute("clientes", clientes);
         request.setAttribute("puestos", puestos);
-
         getServletContext().getRequestDispatcher("/ModificarAlquiler.jsp").forward(request, response);
         processRequest(request, response);
     }
@@ -88,7 +88,7 @@ public class ModificarAlquilerServlet extends HttpServlet {
         a.setSillasExtras(Integer.parseInt(request.getParameter("sillasExtra")));
 
         String salaReunion = request.getParameter("salaReunion");
-        if ("on".equals(salaReunion)) {
+        if (salaReunion != null) {
             a.setSalaReunion(true);
         } else {
             a.setSalaReunion(false);
@@ -99,7 +99,7 @@ public class ModificarAlquilerServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
         //else
         
-        getServletContext().getRequestDispatcher("/Hubo un Error.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
         processRequest(request, response);
     }
 

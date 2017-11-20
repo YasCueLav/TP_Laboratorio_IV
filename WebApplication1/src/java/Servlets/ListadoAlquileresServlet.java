@@ -7,6 +7,7 @@ package Servlets;
 
 import Controladores.GestorAlquiler;
 import Model.Alquiler;
+import Model.VMAlquiler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class ListadoAlquileresServlet extends HttpServlet {
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
             GestorAlquiler ga = new GestorAlquiler();
-            ArrayList<Alquiler> alquileres = ga.obtenerAlquileres();
+            ArrayList<VMAlquiler> alquileres = ga.obtenerAlquileresViewModel();
             request.setAttribute("alquileres", alquileres);
             getServletContext().getRequestDispatcher("/ListadoAlquileres.jsp").forward(request, response);
         } else {

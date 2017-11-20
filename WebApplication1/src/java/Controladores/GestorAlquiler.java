@@ -34,7 +34,7 @@ public class GestorAlquiler {
         Alquiler a = new Alquiler();
         try {
             forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV","gabriel","G.E.S.C.");
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV", "gabriel", "G.E.S.C.");
             PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_un_alquiler ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
@@ -125,16 +125,41 @@ public class GestorAlquiler {
         return lista;
     }
 
-    public ArrayList<VMTotalAlquilerXPiso> obtenerAlquileresXPiso() {        
+    public ArrayList<VMTotalAlquilerXPiso> obtenerAlquileresXPiso() {
         ArrayList<VMTotalAlquilerXPiso> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
             ResultSet query = stmt.executeQuery("SELECT * FROM vw_obtener_alquileres_por_piso");
-            while(query.next()){
+            while (query.next()) {
                 VMTotalAlquilerXPiso vt = new VMTotalAlquilerXPiso();
                 vt.setNroPiso(query.getInt("piso"));
                 vt.setMonto(query.getDouble("Importe Total"));
                 lista.add(vt);
+            }
+            query.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return lista;
+    }
+
+    public ArrayList<VMAlquiler> obtenerAlquileresViewModel() {
+        ArrayList<VMAlquiler> lista = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("select a.id_alquiler, p.nombre, a.cant_equipos, p.id_puesto, a.sala_reunion, a.sillas_extras, a.importe from alquileres a join puestos p on a.id_puesto = p.id_puesto");
+            while (query.next()) {
+                VMAlquiler va = new VMAlquiler();
+                va.setId(query.getInt("id_alquiler"));
+                va.setNombre(query.getString("nombre"));
+                va.setCanEquipo(query.getInt("cant_equipos"));
+                va.setPuesto(query.getInt("id_puesto"));
+                va.setSalaReunion(query.getBoolean("sala_reunion"));
+                va.setSillasExtras(query.getInt("sillas_extras"));
+                va.setTotal(query.getDouble("importe"));
+                lista.add(va);
             }
             query.close();
             stmt.close();

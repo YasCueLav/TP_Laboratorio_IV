@@ -56,7 +56,7 @@ public class TotalAlquilerXPisoServlet extends HttpServlet {
         boolean isLogged = (boolean) mySession.getAttribute("inicio");
         if (isLogged) {
             request.setAttribute("alquileres", alquileres);
-            getServletContext().getRequestDispatcher("/TotalAlquileresXPiso.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/TotalAlquilerXPiso.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/InicioSesion.jsp").forward(request, response);
         }
