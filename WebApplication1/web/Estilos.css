@@ -34,3 +34,12 @@ body{
     margin-left: 2em;
     margin-right: 2em;
 }
+#mensajeError{
+    color: red;
+}
+#MensajeExito{
+    color: greenyellow;
+}
+#bordesColor{
+    border-color: black;
+}

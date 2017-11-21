@@ -14,25 +14,35 @@
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
-            <h1>Modificar Alquiler</h1>
+            <div id="bordes">
+                <h1>Modificar Alquiler</h1>
 
+                <form action="ModificarAlquilerServlet" method="POST">
+                    <input type="hidden" name="idAlquiler" value="${alquiler.getIdAlquiler()}">
 
-            <form action="ModificarAlquilerServlet" method="POST">
-                <input type="hidden" name="idAlquiler" value="${alquiler.getIdAlquiler()}">
-            <br/>
-            <label>Cantidad equipos</label> <input  type="number" name="canEquipo" value="${alquiler.getCanEquipo()}"  min="0"/>
-            <br/>
-            <label>Sillas extras</label> <input type="number" name="sillasExtra" value="${alquiler.getSillasExtras()}"  min="0"/>
-            <br/>
-            <c:if test="${alquiler.isSalaReunion()}">
-                <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion" checked/>
-            </c:if>
-            <c:if test="${!alquiler.isSalaReunion()}">
-                <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion"/>
-            </c:if>
-            <br/>
-            <input type="submit" value="Modificar" class="btn btn-primary" />
-        </form> 
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Cantidad equipos</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" name="canEquipo" value="${alquiler.getCanEquipo()}"  min="0">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Sillas extras</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" name="sillasExtra" value="${alquiler.getSillasExtras()}"  min="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-check-label" for="exampleFormControlInput1">
+                        <c:if test="${alquiler.isSalaReunion()}">
+                            <input type="checkbox" class="form-check-input"  name="SalaDeReunion" checked>
+                        </c:if>
+                        <c:if test="${!alquiler.isSalaReunion()}">
+                            <input type="checkbox" class="form-check-input"  name="SalaDeReunion" value="false">
+                        </c:if>
+                        Sala de Reuniones
+                    </label>
+                </div>
+                <input type="submit" value="Modificar"  class="btn btn-primary" />
+            </form>
+        </div>
+
 
     </body>
 </html>

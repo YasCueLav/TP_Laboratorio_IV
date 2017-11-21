@@ -13,34 +13,39 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar</title>
         <jsp:include page="links.jsp"></jsp:include>
-    </head>
-    <body>
+        </head>
+        <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h3>Modifique los datos</h3>
-        <table border="1">
-            <tr>
-                <th>Cliente</th>
-                <th>Puesto</th>
-                <th>Cantidad Equipos</th>
-                <th>Sillas Extras</th>
-                <th>Sala Reunion</th>
-            </tr>
-            <c:forEach items="${alquileres}" var="a">
-                <tr>
-                    <td>${a.getNombre()}</td>
-                    <td>${a.getPuesto()}</td>
-                    <td>${a.getCanEquipo()}</td>
-                    <td>${a.getSillasExtras()}</td>
-                    <c:if test="${a.isSalaReunion()}">
-                        <td>Tiene</td>
-                    </c:if>
-                    <c:if test="${!a.isSalaReunion()}">
-                        <td>No Tiene</td>
-                    </c:if>
-                    <td><a href="/WebApplication1/ModificarAlquilerServlet?idAlquiler=${a.getId()}">Editar</a></td>
-                </tr>
-            </c:forEach>
-                        
-        </table>
+        <div id="bordes">
+            <h1>Modifique los datos</h1>
+            <table class="table table-hover" border="1" id="bordesColor">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Cantidad Equipos</th>
+                            <th scope="col">Sillas Extras</th>
+                            <th scope="col">Sala Reunion</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${alquileres}" var="a">
+                        <tr>
+                            <td>${a.getNombre()}</td>
+                            <td>${a.getPuesto()}</td>
+                            <td>${a.getCanEquipo()}</td>
+                            <td>${a.getSillasExtras()}</td>
+                            <c:if test="${a.isSalaReunion()}">
+                                <td>Tiene</td>
+                            </c:if>
+                            <c:if test="${!a.isSalaReunion()}">
+                                <td>No Tiene</td>
+                            </c:if>
+                            <td><a href="/WebApplication1/ModificarAlquilerServlet?idAlquiler=${a.getId()}">Editar</a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

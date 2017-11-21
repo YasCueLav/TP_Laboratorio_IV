@@ -15,9 +15,9 @@
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
-            <h1>Registro Cliente</h1>
-
             <div id="bordes">
+                <h1>Registro Cliente</h1>
+                
                 <form action="AltaClienteServlet" method="POST">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nombre</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Teléfono</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="telefono" value="0"  min="0">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="telefono" placeholder="156326598">
                 </div>
                 <input type="submit" value="Cargar" class="btn btn-primary" />
             </form>     

@@ -35,7 +35,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/WebApplication1/TotalAlquilerXPisoServle">Ganancias por Piso <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/WebApplication1/TotalAlquilerXPisoServlet">Ganancias por Piso <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/WebApplication1/ListadoPuestoDisponiblesServlet">Puestos Disponibles <span class="sr-only">(current)</span></a>
