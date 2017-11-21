@@ -10,15 +10,14 @@
         <a class="navbar-brand" href="/WebApplication1/Index">Inicio</a>
       </div>
         <ul class="nav navbar-nav"><%-- Ir al Servlet No al JSP --%>
-        <li><a href="/WebApplication1/AltaClienteServlet">Registros Cliente</a></li>
-        <li><a href="/WebApplication1/AltaPuestoServlet">Registros Puesto</a></li>
-        <li><a href="/WebApplication1/AltaAlquilerServlet">Registros Alquiler</a></li>
-        <li><a href="/WebApplication1/ListadoAlquileresServlet">Modificar Alquiler</a></li>
-        <li><a href="/WebApplication1/ListadoClientesServlet">Listado de Clientes</a></li>
-        <li><a href="/WebApplication1/ListadoClientesPuestosServlet">Listado de Clientes Filtor</a></li>
-        <li><a href="/WebApplication1/ListadoCompletoPuestosServlet">Listado Completo de Puestos</a></li>
-        <li><a href="/WebApplication1/ListadoPuestoDisponiblesServlet">Listado de Puestos Disponibles</a></li>
-        <li><a href="/WebApplication1/TotalAlquilerXPisoServlet">Total de alquiler por Piso</a></li>
+        <li><a href="/WebApplication1/AltaClienteServlet">Nuevo Cliente</a></li>
+        <li><a href="/WebApplication1/AltaPuestoServlet">Nuevo Puesto</a></li>
+        <li><a href="/WebApplication1/AltaAlquilerServlet">Alquilar</a></li>
+        <li><a href="/WebApplication1/ListadoAlquileresServlet">Alquileres</a></li>
+        <li><a href="/WebApplication1/ListadoClientesServlet">Clientes</a></li>
+        <li><a href="/WebApplication1/ListadoCompletoPuestosServlet">Puestos</a></li>
+        <li><a href="/WebApplication1/ListadoPuestoDisponiblesServlet">Puestos Disponibles</a></li>
+        <li><a href="/WebApplication1/TotalAlquilerXPisoServlet">Ganancias por Piso</a></li>
         <c:if test="${inicio}">
             <li><a href="/WebApplication1/RevicionInicio.jsp" onclick="alert('Desconectado');">Cerrar Sesion</a></li>
         </c:if>

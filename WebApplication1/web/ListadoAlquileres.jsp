@@ -16,12 +16,9 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h3>Selecionar el que desea modificar</h3>
-        
-        
+        <h3>Modifique los datos</h3>
         <table border="1">
             <tr>
-                <th>Id alquiler</th>
                 <th>Cliente</th>
                 <th>Puesto</th>
                 <th>Cantidad Equipos</th>
@@ -30,7 +27,6 @@
             </tr>
             <c:forEach items="${alquileres}" var="a">
                 <tr>
-                    <td>${a.getId()}</td>
                     <td>${a.getNombre()}</td>
                     <td>${a.getPuesto()}</td>
                     <td>${a.getCanEquipo()}</td>

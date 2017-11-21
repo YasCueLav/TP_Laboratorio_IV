@@ -36,7 +36,7 @@ public class GestorCliente {
 
         Cliente c = new Cliente();
         try {
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_cliente ?");
+            PreparedStatement stmt = conn.prepareStatement("select * from clientes where id_cliente = ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
             if (query.next()) {
@@ -101,22 +101,6 @@ public class GestorCliente {
             Logger.getLogger(GestorCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
-    }
-
-    public ArrayList<VMListadoCliente> obtenerListadoCliente() {
-        ArrayList<VMListadoCliente> lista = new ArrayList<>();
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * from vw_lista_clientes_general");
-            while (query.next()) {
-                VMListadoCliente l = new VMListadoCliente();
-                l.setNombreCliente(query.getString(1));
-                lista.add(l);
-            }
-
-        } catch (Exception e) {
-        }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public ArrayList<VMListadoCliente> obtenerClientesListado() {

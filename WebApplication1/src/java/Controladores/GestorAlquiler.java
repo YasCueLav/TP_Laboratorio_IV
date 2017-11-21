@@ -35,7 +35,7 @@ public class GestorAlquiler {
         try {
             forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1412;databaseName=TP_Lab_IV", "gabriel", "G.E.S.C.");
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_un_alquiler ?");
+            PreparedStatement stmt = conn.prepareStatement("select * from alquileres where id_alquiler = ?");
             stmt.setInt(1, id);
             ResultSet query = stmt.executeQuery();
             if (query.next()) {
@@ -73,7 +73,12 @@ public class GestorAlquiler {
             stmt.setDouble(6, a.getImporte());
             stmt.executeUpdate();
             stmt.close();
+            stmt = conn.prepareStatement("update puestos set disponible = 0 where id_puesto = ?");
+            stmt.setInt(1, a.getIdPuesto());
+            stmt.executeUpdate();
+            stmt.close();
             conn.close();
+
         } catch (SQLException ex) {
             System.out.println(ex);
             inserto = false;

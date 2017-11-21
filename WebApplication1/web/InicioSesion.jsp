@@ -11,10 +11,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio Sesion</title>
         <jsp:include page="links.jsp"></jsp:include>
-    </head>
-    <body>
+        </head>
+        <body>
+        <jsp:include page="menu.jsp"></jsp:include>
+
         <h1>Inicio Sesion</h1>
-        
+
         <form action="Login" method="POST">
             <label>Mail </label><input type="text" name="mail"/>
             <br/>

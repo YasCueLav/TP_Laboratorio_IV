@@ -59,7 +59,7 @@ public class AltaAlquilerServlet extends HttpServlet {
             GestorCliente gc = new GestorCliente();
             ArrayList<Cliente> clientes = gc.obtenerClientes();
             GestorPuesto gp = new GestorPuesto();
-            ArrayList<Puesto> puestos = gp.obtenerPuestos();
+            ArrayList<Puesto> puestos = gp.obtenerPuestosDisponibles();
             request.setAttribute("clientes", clientes);
             request.setAttribute("puestos", puestos);
             getServletContext().getRequestDispatcher("/AltaAlquiler.jsp").forward(request, response);
@@ -96,6 +96,7 @@ public class AltaAlquilerServlet extends HttpServlet {
         Puesto p = gp.obtenerPuesto(a.getIdPuesto());
         p.calcularPrecioBase();
         a.calcularImporte(p.getPrecioBase());
+        System.out.println("Es " + a.getImporte());
         boolean cargo = ga.agregarAlquiler(a);
         if (cargo) {
             getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);

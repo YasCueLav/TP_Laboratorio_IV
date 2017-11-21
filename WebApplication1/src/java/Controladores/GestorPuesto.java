@@ -37,7 +37,8 @@ public class GestorPuesto {
                 p.setPiso(query.getInt("piso"));
                 p.setVentana(query.getBoolean("ventana"));
                 p.setCantSillas(query.getInt("cant_sillas"));
-                p.setDisponible(query.getBoolean("disponible"));                
+                p.setDisponible(query.getBoolean("disponible"));
+                p.calcularPrecioBase();
                 lista.add(p);
             }
             query.close();
@@ -58,7 +59,7 @@ public class GestorPuesto {
             stmt.setInt(2, p.getPiso());
             stmt.setBoolean(3, p.isVentana());
             stmt.setInt(4, p.getCantSillas());
-            stmt.setBoolean(5, p.isDisponible());
+            stmt.setBoolean(5, true);
             stmt.setDouble(6, p.getPrecioBase());
             stmt.executeUpdate();
             stmt.close();
@@ -70,15 +71,15 @@ public class GestorPuesto {
         }
         return inserto;
     }
-    
-    public Puesto obtenerPuesto(int idPuesto){
+
+    public Puesto obtenerPuesto(int idPuesto) {
         Puesto p = new Puesto();
         try {
-            
-            PreparedStatement stmt = conn.prepareStatement("EXEC pa_obtener_un_puesto ?");
+
+            PreparedStatement stmt = conn.prepareStatement("select * from puestos where id_puesto = ?");
             stmt.setInt(1, idPuesto);
             ResultSet query = stmt.executeQuery();
-            if(query.next()){
+            if (query.next()) {
                 p.setIdPuesto(query.getInt("id_puesto"));
                 p.setPuesto(query.getInt("nombre"));
                 p.setPiso(query.getInt("piso"));
@@ -99,7 +100,7 @@ public class GestorPuesto {
         ArrayList<Puesto> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * from Puestos where id_puesto = " + idCliente);
+            ResultSet query = stmt.executeQuery("SELECT p.* from Puestos p join Alquileres a on a.id_puesto = p.id_puesto where a.id_cliente = " + idCliente);
             while (query.next()) {
                 Puesto p = new Puesto();
                 p.setIdPuesto(query.getInt("id_puesto"));
@@ -107,7 +108,8 @@ public class GestorPuesto {
                 p.setPiso(query.getInt("piso"));
                 p.setVentana(query.getBoolean("ventana"));
                 p.setCantSillas(query.getInt("cant_sillas"));
-                p.setDisponible(query.getBoolean("disponible"));                
+                p.setDisponible(query.getBoolean("disponible"));
+                p.calcularPrecioBase();
                 lista.add(p);
             }
             query.close();
@@ -121,10 +123,10 @@ public class GestorPuesto {
     }
 
     public ArrayList<Puesto> obtenerPuestosDisponibles() {
-            ArrayList<Puesto> lista = new ArrayList<>();
+        ArrayList<Puesto> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("SELECT * from Puestos where disponible = 0");
+            ResultSet query = stmt.executeQuery("SELECT * from Puestos where disponible = 1");
             while (query.next()) {
                 Puesto p = new Puesto();
                 p.setIdPuesto(query.getInt("id_puesto"));
@@ -132,7 +134,8 @@ public class GestorPuesto {
                 p.setPiso(query.getInt("piso"));
                 p.setVentana(query.getBoolean("ventana"));
                 p.setCantSillas(query.getInt("cant_sillas"));
-                p.setDisponible(query.getBoolean("disponible"));                
+                p.setDisponible(query.getBoolean("disponible"));
+                p.calcularPrecioBase();
                 lista.add(p);
             }
             query.close();

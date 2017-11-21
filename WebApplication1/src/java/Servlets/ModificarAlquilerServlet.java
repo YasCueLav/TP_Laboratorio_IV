@@ -56,14 +56,7 @@ public class ModificarAlquilerServlet extends HttpServlet {
         GestorAlquiler ga = new GestorAlquiler();
         Alquiler a;
         a = ga.obtenerAlquiler(id);
-        GestorCliente gc = new GestorCliente();
-        ArrayList<Cliente> clientes = gc.obtenerClientes();
-        GestorPuesto gp = new GestorPuesto();
-        ArrayList<Puesto> puestos = gp.obtenerPuestos();
-        
         request.setAttribute("alquiler", a);
-        request.setAttribute("clientes", clientes);
-        request.setAttribute("puestos", puestos);
         getServletContext().getRequestDispatcher("/ModificarAlquiler.jsp").forward(request, response);
         processRequest(request, response);
     }
@@ -82,8 +75,6 @@ public class ModificarAlquilerServlet extends HttpServlet {
 
         Alquiler a = new Alquiler();
         a.setIdAlquiler(Integer.parseInt(request.getParameter("idAlquiler")));
-        a.setIdCliente(Integer.parseInt(request.getParameter("cliente")));
-        a.setIdPuesto(Integer.parseInt(request.getParameter("puesto")));
         a.setCanEquipo(Integer.parseInt(request.getParameter("canEquipo")));
         a.setSillasExtras(Integer.parseInt(request.getParameter("sillasExtra")));
 
@@ -93,13 +84,13 @@ public class ModificarAlquilerServlet extends HttpServlet {
         } else {
             a.setSalaReunion(false);
         }
-
+        GestorAlquiler ga = new GestorAlquiler();
         //modificar el alquiler
-        //if(modificaralquiler)
-        getServletContext().getRequestDispatcher("/Index.jsp").forward(request, response);
-        //else
-        
-        getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
+        if (ga.modificarAlquiler(a)) {
+            getServletContext().getRequestDispatcher("/exito.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/HuboUnProblema.jsp").forward(request, response);
+        }
         processRequest(request, response);
     }
 

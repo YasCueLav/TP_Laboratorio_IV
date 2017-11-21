@@ -89,11 +89,15 @@ public class Alquiler {
     
     public void calcularImporte(double precioBase){
         importe = precioBase;
+        System.out.println("precio base " + precioBase);
+        System.out.println("eq y ex " + canEquipo + " " + sillasExtras);
         importe += (canEquipo * 800); // sumando computadoras
         importe += (sillasExtras * 100); // sumando sillas extras
         if (salaReunion){
             importe += 1000;
+            System.out.println("entro sala");
         }
+        System.out.println("importe es " + importe);
     }
     
 }

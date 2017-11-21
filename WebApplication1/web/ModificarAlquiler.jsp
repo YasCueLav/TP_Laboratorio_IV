@@ -17,33 +17,22 @@
             <h1>Modificar Alquiler</h1>
 
 
-        <form action="ModificarAlquilerServlet" method="POST">
-            <input type="hidden" name="idAlquiler" value="${alquiler.getIdAlquiler()}">
-            Cliente<select name="cliente">
-            <c:forEach items="${clientes}" var="cliente">
-                <option value="${cliente.getIdCliente()}">${cliente.getApellido()} ${cliente.getNombre()}</option>
-            </c:forEach>
-        </select>
-        Puesto<select name="puesto">
-            <c:forEach items="${puestos}" var="puesto">
-                <option value="${puesto.getIdPuesto()}">${cliente.getPuesto()}</option>
-            </c:forEach>
-        </select>
+            <form action="ModificarAlquilerServlet" method="POST">
+                <input type="hidden" name="idAlquiler" value="${alquiler.getIdAlquiler()}">
+            <br/>
+            <label>Cantidad equipos</label> <input  type="number" name="canEquipo" value="${alquiler.getCanEquipo()}"  min="0"/>
+            <br/>
+            <label>Sillas extras</label> <input type="number" name="sillasExtra" value="${alquiler.getSillasExtras()}"  min="0"/>
+            <br/>
+            <c:if test="${alquiler.isSalaReunion()}">
+                <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion" checked/>
+            </c:if>
+            <c:if test="${!alquiler.isSalaReunion()}">
+                <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion"/>
+            </c:if>
+            <br/>
+            <input type="submit" value="Modificar" class="btn btn-primary" />
+        </form> 
 
-        <br/>
-        <label>Cantidad equipos</label> <input  type="number" name="canEquipo" value="${alquiler.getCanEquipo()}"  min="0"/>
-        <br/>
-        <label>Sillas extras</label> <input type="number" name="sillasExtra" value="${alquiler.getSillasExtras()}"  min="0"/>
-        <br/>
-        <c:if test="${alquiler.isSalaReunion()}">
-            <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion" checked/>
-        </c:if>
-        <c:if test="${!alquiler.isSalaReunion()}">
-        <label>Sala de Reuniones</label> <input type="checkbox" name="salaReunion"/>
-        </c:if>
-        <br/>
-        <input type="subit" value="Modificar" class="btn btn-primary" />
-    </form> 
-
-</body>
+    </body>
 </html>
