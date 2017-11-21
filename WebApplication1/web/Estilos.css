@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/11/2017, 16:26:31
+    Author     : Yasmin
+*/
+#letraNegraUsuario {
+ font-weight: 500; 
+ font-size:medium;
+}
+
+#iniciosecion{
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    color: white;
+    
+}
+#iniciosecionButton{
+    font-size:medium;
+    font-weight: 600;
+}
+#iniciosecionTitle{
+    color: black;
+}
+body{
+    background-color: #999DA5;
+}
+#bordes{
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+}

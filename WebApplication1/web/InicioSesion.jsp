@@ -14,15 +14,23 @@
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
+        <div id="iniciosecion">
+            <h1 id="iniciosecionTitle">Inicio Sesion</h1>
 
-        <h1>Inicio Sesion</h1>
-
-        <form action="Login" method="POST">
-            <label>Mail </label><input type="text" name="mail"/>
-            <br/>
-            <label>Contraseña </label><input type="text" name="pass"/>
-            <br/>
-            <input type="submit" value="Iniciar" class="btn btn-primary"/>
-        </form>
+            <form action="Login" method="POST">
+              <div class="form-group">
+                <label for="exampleInputEmail1" id="letraNegraUsuario">Usuario</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuario" name="mail">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" id="letraNegraUsuario">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="pass">
+              </div>
+              <input type="submit" value="Iniciar" class="btn btn-primary" id="iniciosecionButton"/>
+            </form>
+        </div>
     </body>
 </html>
+
+
+        
