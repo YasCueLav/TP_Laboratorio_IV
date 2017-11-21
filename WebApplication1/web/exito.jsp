@@ -14,6 +14,8 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Se ha realizado la acción con éxito</h1>
+        <div id="bordes">
+            <h1 id="MensajeExito">Se ha realizado la acción con éxito</h1>
+        </div>
     </body>
 </html>

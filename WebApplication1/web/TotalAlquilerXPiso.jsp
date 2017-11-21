@@ -12,22 +12,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reporte</title>
         <jsp:include page="links.jsp"></jsp:include>
-    </head>
-    <body>
+        </head>
+        <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Total de alquileres por piso</h1>
-        
-        <table border="1">
-            <tr>
-                <th>Piso</th>
-                <th>Total Recaudado</th>
-            </tr>
-            <c:forEach items="${alquileres}" var="a">
-                <tr>
-                    <td>${a.getNroPiso()}</td>
-                    <td>${a.getMonto()}</td>
-                </tr>
-            </c:forEach>
-        </table>
+            <div id="bordes">
+                <h1>Total de alquileres por piso</h1>
+
+                <table class="table table-hover" border="1" id="bordesColor">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Piso</th>
+                            <th scope="col">Total Recaudado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${alquileres}" var="a">
+                        <tr>
+                            <td>${a.getNroPiso()}</td>
+                            <td>${a.getMonto()}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

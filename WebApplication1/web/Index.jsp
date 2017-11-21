@@ -15,6 +15,6 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <div></div>
+        <img src="http://ricohsom.com/wp-content/uploads/2016/09/Render-interior-oficina-MIX.jpg" class="img-fluid" alt="Responsive image">
     </body>
 </html>
