@@ -57,7 +57,13 @@ public class ModificarAlquilerServlet extends HttpServlet {
         Alquiler a;
         a = ga.obtenerAlquiler(id);
         request.setAttribute("alquiler", a);
+//        getServletContext().getRequestDispatcher("/ModificarAlquiler.jsp").forward(request, response);
+        
+        GestorCliente gc = new GestorCliente();
+        Cliente c = gc.obtenerCliente(a.getIdCliente());
+        request.setAttribute("cliente", c);
         getServletContext().getRequestDispatcher("/ModificarAlquiler.jsp").forward(request, response);
+        
         processRequest(request, response);
     }
 

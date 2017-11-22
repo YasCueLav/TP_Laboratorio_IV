@@ -17,6 +17,7 @@
         <jsp:include page="menu.jsp"></jsp:include>
             <div id="bordes">
                 <h1>Modificar Alquiler</h1>
+                <h2 class="font-italic">${cliente.getNombre()}  ${cliente.getApellido()}</h2>
 
                 <form action="ModificarAlquilerServlet" method="POST">
                     <input type="hidden" name="idAlquiler" value="${alquiler.getIdAlquiler()}">
