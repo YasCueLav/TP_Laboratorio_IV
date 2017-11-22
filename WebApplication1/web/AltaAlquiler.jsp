@@ -20,7 +20,7 @@
             <div id="bordes">
                 <h1>Registro Alquiler</h1>
 
-                <form action="AltaAlquilerServlet" method="POST" onsubmit="return validarNuevoAlquiler();">
+                <form action="AltaAlquilerServlet" method="POST">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cliente</label>
                         <select name="Cliente" class="form-control" id="exampleFormControlSelect1">

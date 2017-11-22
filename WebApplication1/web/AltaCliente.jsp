@@ -20,7 +20,7 @@
             <div id="bordes">
                 <h1>Registro Cliente</h1>
 
-                <form action="AltaClienteServlet" method="POST" onsubmit="return validarNuevoCliente();">
+                <form action="AltaClienteServlet" method="POST">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nombre</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente" placeholder="Nombre" onkeypress="return soloLetras(event)">
