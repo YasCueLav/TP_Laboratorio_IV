@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Documento</label>
-                        <select class="form-control" id="exampleFormControlSelect1" id="tamTipoDNI">
+                        <select name="tiposDocumento" class="form-control" id="exampleFormControlSelect1" id="tamTipoDNI" >
                         <c:forEach items="${tiposDocumento}" var="tpV">
                             <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
                         </c:forEach>
