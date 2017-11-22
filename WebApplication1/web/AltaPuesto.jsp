@@ -12,13 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
         <jsp:include page="links.jsp"></jsp:include>
+            <script src="validar.js" type="text/javascript"></script>
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
         <div id="bordes">
             <h1>Registro Puesto</h1>
 
-            <form action="AltaPuestoServlet" method="POST">
+            <form action="AltaPuestoServlet" method="POST" onsubmit="return validarNuevoPuesto();">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Piso</label>
                     <input type="number" class="form-control" id="exampleFormControlInput1"name="pisoPuesto" value="1" min="1" max="5">
@@ -29,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Cantidad de sillas</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="sillasExtra" value="0"  min="0">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="sillasExtra" value="0"  min="0" max="100">
                 </div>
                 <div class="form-group">
                     <label class="form-check-label" for="exampleFormControlInput1">

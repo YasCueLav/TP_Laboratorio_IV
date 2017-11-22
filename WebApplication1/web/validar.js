@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 
-
 function validarNuevoCliente() {
     var Nombre, Apellido, Documento, Telefono;
     
 
-    Nombre = document.getElementById("txtNombre").value;
-    Apellido = document.getElementById("txtApelldio");
-    Documento = document.getElementById("txtDocumento").value;
-    Telefono = document.getElementById("txtTelefono").value;
+    Nombre = document.getElementById("nombreCliente").value;
+    Apellido = document.getElementById("apellidoCliente");
+    Documento = document.getElementById("documento").value;
+    Telefono = document.getElementById("telefono").value;
     
 
     if (!isNaN(Nombre)) {
@@ -56,17 +55,19 @@ function validarNuevoCliente() {
     }
     alert("Cliente registrado exitosamente");
 }
+
+
 function validarNuevoAlquiler() {
     var CantEquipos, SillasExtras;
 
-    CantEquipos = document.getElementById("txtCantEquipos").value;
-    SillasExtras = document.getElementById("txtSillasExtras").value;
+    CantEquipos = document.getElementById("CantidadEquipo").value;
+    SillasExtras = document.getElementById("CantidadSilla").value;
 
     if (isNaN(CantEquipos)) {
         alert("El campo Cantidad de Equipos solo acepta numeros");
         return false;
     } 
-    else if (CantEquipos < 0)
+    else if (CantEquipos <= 0)
     {
         alert("La cantidad de equipos no puede ser negativa");
         return false;
@@ -80,7 +81,7 @@ function validarNuevoAlquiler() {
         alert("El campo Sillas Extras solo acepta numeros");
         return false;
     } 
-    else if (SillasExtras < 0)
+    else if (SillasExtras <= 0)
     {
         alert("La cantidad de sillas no puede ser negativa");
         return false;
@@ -92,11 +93,14 @@ function validarNuevoAlquiler() {
     }
     alert("Alquiler registrado exitosamente");
 }
+
+
 function validarNuevoPuesto() {
     var Piso, CantSillas;
 
-    Piso = document.getElementById("txtPiso").value;
-    CantSillas = document.getElementById("txtCantSillas").value;
+    Piso = document.getElementById("pisoPuesto").value;
+    num = document.getElementById("numeroPuesto").value;
+    CantSillas = document.getElementById("sillasExtra").value;
 
     if (isNaN(Piso)) {
         alert("El campo Piso solo acepta numeros");
@@ -112,11 +116,21 @@ function validarNuevoPuesto() {
         alert("El campo Piso no puede ser mayor a 5");
         return false;
     }
+    if (isNaN(num)) {
+        alert("El campo numero solo acepta numeros");
+        return false;
+    }
+    else if (num < 0)
+    {
+        alert("El campo numero no puede ser negativo");
+        return false;
+    }
+    
     if (isNaN(CantSillas)) {
         alert("El campo Cantidad de Sillas solo acepta numeros");
         return false;
     }
-    else if (CantiSillas < 0)
+    else if (CantSillas < 0)
     {
         alert("El campo Cantidad de Sillas no puede ser negativo");
         return false;
