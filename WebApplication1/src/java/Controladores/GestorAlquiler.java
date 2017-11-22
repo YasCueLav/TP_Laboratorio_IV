@@ -154,10 +154,11 @@ public class GestorAlquiler {
         ArrayList<VMAlquiler> lista = new ArrayList<>();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet query = stmt.executeQuery("select a.id_alquiler, p.nombre, a.cant_equipos, p.id_puesto, a.sala_reunion, a.sillas_extras, a.importe from alquileres a join puestos p on a.id_puesto = p.id_puesto");
+            ResultSet query = stmt.executeQuery("select a.id_alquiler,c.documento, p.nombre, a.cant_equipos, p.id_puesto, a.sala_reunion, a.sillas_extras, a.importe from Clientes c join Alquileres a  on (c.id_cliente = a.id_cliente) join puestos p on (a.id_puesto = p.id_puesto)");
             while (query.next()) {
                 VMAlquiler va = new VMAlquiler();
                 va.setId(query.getInt("id_alquiler"));
+                va.setDocumentoCliente(query.getLong("documento"));
                 va.setNombre(query.getString("nombre"));
                 va.setCanEquipo(query.getInt("cant_equipos"));
                 va.setPuesto(query.getInt("id_puesto"));

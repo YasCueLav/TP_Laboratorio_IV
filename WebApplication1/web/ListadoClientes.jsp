@@ -35,7 +35,7 @@
                             <td>${c.getTelefono()}</td>
                             <td>${c.getCantidadPuesto()}</td>
                             <td>${c.getImporte()}</td>
-                            <td><a href="/WebApplication1/DetalleClientesServlet?idCliente=${c.getIdCliente()}">Ver Detalle</a></td>
+                            <td><a id="Link" href="/WebApplication1/DetalleClientesServlet?idCliente=${c.getIdCliente()}">Ver Detalle</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

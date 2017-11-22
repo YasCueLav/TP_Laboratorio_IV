@@ -44,11 +44,11 @@
     <ul class="nav justify-content-end">
       <li class="nav-item active">
         <c:if test="${inicio}">
-            <a class="nav-link" href="/WebApplication1/RevicionInicio.jsp" onclick="alert('Desconectado');" style="color: dodgerblue;">
+            <a class="nav-link" href="/WebApplication1/RevicionInicio.jsp" onclick="alert('Desconectado');" id="secion">
                 Cerrar Sesion<span class="sr-only">(current)</span></a>
         </c:if>
         <c:if test="${!inicio}">
-            <a class="nav-link" href="/WebApplication1/Login" style="color: dodgerblue;">Iniciar Sesion<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/WebApplication1/Login" id="secion">Iniciar Sesion<span class="sr-only">(current)</span></a>
         </c:if>   
       </li>
     </ul>

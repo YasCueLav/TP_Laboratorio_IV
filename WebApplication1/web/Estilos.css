@@ -43,3 +43,10 @@ body{
 #bordesColor{
     border-color: black;
 }
+#Link{
+    color: aqua;
+    font-weight: 500; 
+}
+#secion{
+    color: dodgerblue;
+}
