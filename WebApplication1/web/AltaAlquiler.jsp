@@ -22,7 +22,7 @@
                 <form action="AltaAlquilerServlet" method="POST" onsubmit="return validarNuevoAlquiler();">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cliente</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select name="Cliente" class="form-control" id="exampleFormControlSelect1">
                         <c:forEach items="${clientes}" var="cl">
                             <option value="${cl.getIdCliente()}">${cl.getNombre()}, ${cl.getApellido()}</option>
                         </c:forEach>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Puesto</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select name="Puesto" class="form-control" id="exampleFormControlSelect1">
                         <c:forEach items="${puestos}" var="p">
                             <option value="${p.getIdPuesto()}">${p.getPuesto()}</option>
                         </c:forEach>
