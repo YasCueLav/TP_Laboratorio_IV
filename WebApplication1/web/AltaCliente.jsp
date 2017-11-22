@@ -12,13 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
         <jsp:include page="links.jsp"></jsp:include>
+            <script src="validar.js" type="text/javascript"></script>
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
             <div id="bordes">
                 <h1>Registro Cliente</h1>
-                
-                <form action="AltaClienteServlet" method="POST">
+
+                <form action="AltaClienteServlet" method="POST" onsubmit="return validarNuevoCliente();">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nombre</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente" placeholder="Nombre">
@@ -29,11 +30,11 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Documento</label>
-                            <select class="form-control" id="exampleFormControlSelect1" id="tamTipoDNI">
-                            <c:forEach items="${tiposDocumento}" var="tpV">
-                                <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
-                            </c:forEach>
-                        </select>
+                        <select class="form-control" id="exampleFormControlSelect1" id="tamTipoDNI">
+                        <c:forEach items="${tiposDocumento}" var="tpV">
+                            <option value="${tpV.getIdTipoDocumento()}">${tpV.getDescripcion()}</option>
+                        </c:forEach>
+                    </select>
                     <input type="number" class="form-control" id="exampleFormControlInput1" name="documento" placeholder="14474472" >
                 </div>
                 <div class="form-group">

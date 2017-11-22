@@ -12,13 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
         <jsp:include page="links.jsp"></jsp:include>
+            <script src="validar.js" type="text/javascript"></script>
         </head>
         <body>
         <jsp:include page="menu.jsp"></jsp:include>
             <div id="bordes">
                 <h1>Registro Alquiler</h1>
 
-                <form action="AltaAlquilerServlet" method="POST">
+                <form action="AltaAlquilerServlet" method="POST" onsubmit="return validarNuevoAlquiler();">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Cliente</label>
                         <select class="form-control" id="exampleFormControlSelect1">
