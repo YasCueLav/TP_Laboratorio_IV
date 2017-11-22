@@ -26,7 +26,7 @@
                             <th scope="col">Puesto</th>
                             <th scope="col">Cantidad Equipos</th>
                             <th scope="col">Sillas Extras</th>
-                            <th scope="col">Sala Reunion</th>
+                            <th scope="col">Sala Reunión</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -37,10 +37,10 @@
                             <td>${a.getCanEquipo()}</td>
                             <td>${a.getSillasExtras()}</td>
                             <c:if test="${a.isSalaReunion()}">
-                                <td>Tiene</td>
+                                <td>Tiene Permiso</td>
                             </c:if>
                             <c:if test="${!a.isSalaReunion()}">
-                                <td>No Tiene</td>
+                                <td>No Tiene Permiso</td>
                             </c:if>
                             <td><a href="/WebApplication1/ModificarAlquilerServlet?idAlquiler=${a.getId()}">Editar</a></td>
                         </tr>

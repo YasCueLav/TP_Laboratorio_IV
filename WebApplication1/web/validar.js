@@ -8,18 +8,18 @@ function validarNuevoCliente() {
     var Nombre, Apellido, Documento, Telefono;
     
 
-    Nombre = document.getElementById("nombreCliente").value;
-    Apellido = document.getElementById("apellidoCliente");
-    Documento = document.getElementById("documento").value;
-    Telefono = document.getElementById("telefono").value;
+    Nombre = document.getElementByName("nombreCliente").value;
+    Apellido = document.getElementByName("apellidoCliente").value;
+    Documento = document.getElementByName("documento").value;
+    Telefono = document.getElementByName("telefono").value;
     
 
     if (!isNaN(Nombre)) {
-        alert("El campo Nombre solo acepta letras");
+        alert("El campo Nombre sólo acepta letras");
         return false;
     }
     if (!isNaN(Apellido)) {
-        alert("El campo Apellido solo acepta letras");
+        alert("El campo Apellido sólo acepta letras");
         return false;
     }
     

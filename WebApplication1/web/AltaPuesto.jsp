@@ -26,17 +26,17 @@
                     <input type="number" class="form-control" id="exampleFormControlInput1"name="pisoPuesto" value="1" min="1" max="5">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Numero</label>
+                    <label for="exampleFormControlInput1">Número</label>
                     <input type="number" class="form-control" id="exampleFormControlInput1"  name="numeroPuesto" value="1"  min="1">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Cantidad de sillas</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="sillasExtra" value="0"  min="0" max="100">
+                    <input type="number" class="form-control" id="exampleFormControlInput1" name="sillasExtra" value="0"  min="0" max="100">
                 </div>
                 <div class="form-group">
                     <label class="form-check-label" for="exampleFormControlInput1">
                         <input type="checkbox" class="form-check-input"  name="ventana" value="false">
-                        ventana
+                        Ventana
                     </label>
                 </div>
                 <input type="submit" value="Cargar" class="btn btn-primary" />

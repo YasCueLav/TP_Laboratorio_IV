@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Teléfono</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" name="telefono" placeholder="156326598">
+                    <input type="number" class="form-control" id="exampleFormControlInput1" name="telefono" placeholder="156326598">
                 </div>
                 <input type="submit" value="Cargar" class="btn btn-primary" />
             </form>     
