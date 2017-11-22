@@ -23,11 +23,11 @@
                 <form action="AltaClienteServlet" method="POST" onsubmit="return validarNuevoCliente();">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nombre</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente" placeholder="Nombre">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nombreCliente" placeholder="Nombre" onkeypress="return soloLetras(event)">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Apellido</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="apellidoCliente" placeholder="Apellido">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="apellidoCliente" placeholder="Apellido" onkeypress="return soloLetras(event)">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Documento</label>

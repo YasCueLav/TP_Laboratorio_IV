@@ -6,54 +6,67 @@
 
 function validarNuevoCliente() {
     var Nombre, Apellido, Documento, Telefono;
-    
 
-    Nombre = document.getElementByName("nombreCliente").value;
-    Apellido = document.getElementByName("apellidoCliente").value;
-    Documento = document.getElementByName("documento").value;
-    Telefono = document.getElementByName("telefono").value;
-    
 
-    if (!isNaN(Nombre)) {
+    Nombre = document.getElementById("nombreCliente").value;
+    Apellido = document.getElementById("apellidoCliente").value;
+    Documento = document.getElementById("documento").value;
+    Telefono = document.getElementById("telefono").value;
+
+
+    if (Number.isNaN(Nombre)) {
         alert("El campo Nombre sólo acepta letras");
         return false;
     }
-    if (!isNaN(Apellido)) {
+    if (!Number.isNaN(Apellido)) {
         alert("El campo Apellido sólo acepta letras");
         return false;
     }
-    
-    
+
     if (isNaN(Telefono)) {
-        alert("El campo Telefono solo acepta numeros");
+        alert("El campo Teléfono solo acepta números");
         return false;
-        }
-        
-    else if (Telefono < 0)
+    } else if (Telefono < 0)
     {
-        alert("El numero de telefono debe ser positivo");
+        alert("El número de teléfono debe ser positivo");
         return false;
-    } 
-    else if (Telefono.length < 6 && Telefono.length > 14)
+    } else if (Telefono.length < 6 && Telefono.length > 14)
     {
-        alert("El Telefono debe tener un largo de entre 6 y 14 caracteres");
+        alert("El Teléfono debe tener un largo de entre 6 y 14 caracteres");
         return false;
     }
     if (isNaN(Documento)) {
-        alert("El campo Documento solo acepta numeros ");
+        alert("El campo Documento solo acepta números ");
         return false;
-    } 
-    else if (Documento < 0)
+    } else if (Documento < 0)
     {
         alert("El Documento debe ser positivo");
         return false;
-    } 
-    else if (Documento.length !== 8)
+    } else if (Documento.length !== 8)
     {
         alert("El Documento debe tener un largo de 8 caracteres");
         return false;
     }
     alert("Cliente registrado exitosamente");
+}
+
+function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+    }
 }
 
 
@@ -66,13 +79,11 @@ function validarNuevoAlquiler() {
     if (isNaN(CantEquipos)) {
         alert("El campo Cantidad de Equipos solo acepta numeros");
         return false;
-    } 
-    else if (CantEquipos <= 0)
+    } else if (CantEquipos <= 0)
     {
         alert("La cantidad de equipos no puede ser negativa");
         return false;
-    } 
-    else if (CantEquipos > 100)
+    } else if (CantEquipos > 100)
     {
         alert("La cantidad de equipos no puede exceder 100");
         return false;
@@ -80,13 +91,11 @@ function validarNuevoAlquiler() {
     if (isNaN(SillasExtras)) {
         alert("El campo Sillas Extras solo acepta numeros");
         return false;
-    } 
-    else if (SillasExtras <= 0)
+    } else if (SillasExtras <= 0)
     {
         alert("La cantidad de sillas no puede ser negativa");
         return false;
-    } 
-    else if (SillasExtras > 100)
+    } else if (SillasExtras > 100)
     {
         alert("La cantidad de sillas extras no puede exceder 100");
         return false;
@@ -105,13 +114,11 @@ function validarNuevoPuesto() {
     if (isNaN(Piso)) {
         alert("El campo Piso solo acepta numeros");
         return false;
-    }
-    else if (Piso < 0)
+    } else if (Piso < 0)
     {
         alert("El campo Piso no puede ser negativo");
         return false;
-    }
-    else if (Piso > 5)
+    } else if (Piso > 5)
     {
         alert("El campo Piso no puede ser mayor a 5");
         return false;
@@ -119,23 +126,20 @@ function validarNuevoPuesto() {
     if (isNaN(num)) {
         alert("El campo numero solo acepta numeros");
         return false;
-    }
-    else if (num < 0)
+    } else if (num < 0)
     {
         alert("El campo numero no puede ser negativo");
         return false;
     }
-    
+
     if (isNaN(CantSillas)) {
         alert("El campo Cantidad de Sillas solo acepta numeros");
         return false;
-    }
-    else if (CantSillas < 0)
+    } else if (CantSillas < 0)
     {
         alert("El campo Cantidad de Sillas no puede ser negativo");
         return false;
-    } 
-    else if (CantSillas > 100)
+    } else if (CantSillas > 100)
     {
         alert("La campo Cantidad de Sillas no puede ser mayor a 100");
         return false;
