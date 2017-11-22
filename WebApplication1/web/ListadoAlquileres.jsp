@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar</title>
+        <link rel="shortcut icon" href="favicon.ico" />
         <jsp:include page="links.jsp"></jsp:include>
         </head>
         <body>

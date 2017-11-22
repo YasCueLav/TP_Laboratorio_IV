@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reporte</title>
         <jsp:include page="links.jsp"></jsp:include>

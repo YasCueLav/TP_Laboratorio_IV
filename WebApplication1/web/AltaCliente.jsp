@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
+        <link rel="shortcut icon" href="favicon.ico" />
         <jsp:include page="links.jsp"></jsp:include>
             <script src="validar.js" type="text/javascript"></script>
         </head>

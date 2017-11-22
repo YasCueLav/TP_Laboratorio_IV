@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico" />
         <title>Registro</title>
         <jsp:include page="links.jsp"></jsp:include>
             <script src="validar.js" type="text/javascript"></script>
