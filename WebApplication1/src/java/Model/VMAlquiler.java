@@ -25,7 +25,16 @@ public class VMAlquiler {
     int sillasExtras;
     boolean salaReunion;
     double total;
+    long documentoCliente;
 
+    public long getDocumentoCliente() {
+        return documentoCliente;
+    }
+
+    public void setDocumentoCliente(long documentoCliente) {
+        this.documentoCliente = documentoCliente;
+    }
+    
     public double getTotal() {
         return total;
     }
